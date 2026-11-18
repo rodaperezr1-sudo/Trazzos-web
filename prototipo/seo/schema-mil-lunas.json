@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-mil-lunas/#pagina",
+      "url": "https://PENDIENTE-DOMINIO/proyectos/quinta-mil-lunas/",
+      "name": "Quinta Mil Lunas, Prados del Este | TRAZZO Construcciones",
+      "description": "Residencia contemporánea en Prados del Este, Caracas. Proyecto de los arquitectos Javier Pereira y Josse Salazar, con entrega prevista para 2027.",
+      "inLanguage": "es-VE",
+      "isPartOf": { "@id": "https://PENDIENTE-DOMINIO/#sitio" },
+      "about": { "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-mil-lunas/#casa" },
+      "primaryImageOfPage": "https://PENDIENTE-DOMINIO/wp-content/themes/tema-trazzo/assets/_web/dia-noche/fachada-frontal-dia.jpg",
+      "breadcrumb": { "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-mil-lunas/#migas" }
+    },
+    {
+      "@type": "House",
+      "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-mil-lunas/#casa",
+      "name": "Quinta Mil Lunas",
+      "description": "Residencia contemporánea con entrega prevista para 2027. Las imágenes son renders del proyecto.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Prados del Este, Caracas",
+        "addressCountry": "VE"
+      },
+      "image": [
+        "https://PENDIENTE-DOMINIO/wp-content/themes/tema-trazzo/assets/_web/dia-noche/fachada-frontal-dia.jpg",
+        "https://PENDIENTE-DOMINIO/wp-content/themes/tema-trazzo/assets/_web/galeria/piscina.jpg",
+        "https://PENDIENTE-DOMINIO/wp-content/themes/tema-trazzo/assets/_web/galeria/cocina-01.jpg"
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-mil-lunas/#obra",
+      "name": "Quinta Mil Lunas",
+      "about": { "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-mil-lunas/#casa" },
+      "creativeWorkStatus": "En obra",
+      "producer": { "@id": "https://PENDIENTE-DOMINIO/#empresa" },
+      "contributor": [
+        { "@type": "Person", "name": "Javier Pereira", "jobTitle": "Arquitecto" },
+        { "@type": "Person", "name": "Josse Salazar", "jobTitle": "Arquitecto" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-mil-lunas/#migas",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://PENDIENTE-DOMINIO/" },
+        { "@type": "ListItem", "position": 2, "name": "Proyectos", "item": "https://PENDIENTE-DOMINIO/proyectos/" },
+        { "@type": "ListItem", "position": 3, "name": "Quinta Mil Lunas" }
+      ]
+    }
+  ]
+}

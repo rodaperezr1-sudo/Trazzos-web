@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TRAZZO · Etiquetas de capitulo. Una por capitulo; solo una visible a la vez.
+  Estructura de cada grupo: numero (.e-num, tabular) + filete de 48 px (.e-line, se dibuja) + nombre (.e-name).
+  Eyebrow del sistema: 13 px, peso 500, espaciado 0.24em, mayusculas, blanco calido.
+  En la web se escalan 1:1 (1 unidad = 1 px). Aqui se apilan solo para revisarlas.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 176" fill="#FFF8EF" font-family="Google Sans Flex, Google Sans, system-ui, sans-serif" font-size="13" font-weight="500" letter-spacing="3.1" id="etiquetas">
+  <title>Etiquetas 01-04</title>
+  <g id="et-01" class="etiqueta" transform="translate(0,20)">
+    <text class="e-num" x="0" y="0" style="font-variant-numeric:tabular-nums">01</text>
+    <path class="e-line" d="M32,-4.5 H80" stroke="#FFF8EF" stroke-width="1" fill="none"/>
+    <text class="e-name" x="94" y="0">TRAZO</text>
+  </g>
+  <g id="et-02" class="etiqueta" transform="translate(0,64)">
+    <text class="e-num" x="0" y="0" style="font-variant-numeric:tabular-nums">02</text>
+    <path class="e-line" d="M32,-4.5 H80" stroke="#FFF8EF" stroke-width="1" fill="none"/>
+    <text class="e-name" x="94" y="0">RENDER</text>
+  </g>
+  <g id="et-03" class="etiqueta" transform="translate(0,108)">
+    <text class="e-num" x="0" y="0" style="font-variant-numeric:tabular-nums">03</text>
+    <path class="e-line" d="M32,-4.5 H80" stroke="#FFF8EF" stroke-width="1" fill="none"/>
+    <text class="e-name" x="94" y="0">OBRA</text>
+  </g>
+  <g id="et-04" class="etiqueta" transform="translate(0,152)">
+    <text class="e-num" x="0" y="0" style="font-variant-numeric:tabular-nums">04</text>
+    <path class="e-line" d="M32,-4.5 H80" stroke="#FFF8EF" stroke-width="1" fill="none"/>
+    <text class="e-name" x="94" y="0">ENTREGA</text>
+  </g>
+</svg>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TRAZZO · Reticula del recorrido. Pantalla completa, se estira (preserveAspectRatio="none");
+  los trazos no escalan (vector-effect) y quedan en 1 px. Color blanco calido al 14 % (sistema 8).
+  12 columnas (escritorio) + 6 filas. En movil se ocultan las columnas pares (.r-par) -> 6 columnas.
+  Orden de animacion: .r-v (verticales, desde el centro hacia afuera, crecen de arriba abajo)
+  -> .r-h (horizontales, de izquierda a derecha) -> .r-cruz (marcas + en cruces, aparecen al final).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="none" fill="none" stroke="#FFF8EF" stroke-opacity=".14" stroke-width="1" id="reticula">
+  <title>Reticula · 12 columnas</title>
+  <g id="r-verticales">
+    <path class="r-v r-par" vector-effect="non-scaling-stroke" d="M100,0 V600"/>
+    <path class="r-v"       vector-effect="non-scaling-stroke" d="M200,0 V600"/>
+    <path class="r-v r-par" vector-effect="non-scaling-stroke" d="M300,0 V600"/>
+    <path class="r-v"       vector-effect="non-scaling-stroke" d="M400,0 V600"/>
+    <path class="r-v r-par" vector-effect="non-scaling-stroke" d="M500,0 V600"/>
+    <path class="r-v"       vector-effect="non-scaling-stroke" d="M600,0 V600"/>
+    <path class="r-v r-par" vector-effect="non-scaling-stroke" d="M700,0 V600"/>
+    <path class="r-v"       vector-effect="non-scaling-stroke" d="M800,0 V600"/>
+    <path class="r-v r-par" vector-effect="non-scaling-stroke" d="M900,0 V600"/>
+    <path class="r-v"       vector-effect="non-scaling-stroke" d="M1000,0 V600"/>
+    <path class="r-v r-par" vector-effect="non-scaling-stroke" d="M1100,0 V600"/>
+  </g>
+  <g id="r-horizontales">
+    <path class="r-h" vector-effect="non-scaling-stroke" d="M0,100 H1200"/>
+    <path class="r-h" vector-effect="non-scaling-stroke" d="M0,200 H1200"/>
+    <path class="r-h" vector-effect="non-scaling-stroke" d="M0,300 H1200"/>
+    <path class="r-h" vector-effect="non-scaling-stroke" d="M0,400 H1200"/>
+    <path class="r-h" vector-effect="non-scaling-stroke" d="M0,500 H1200"/>
+  </g>
+  <g id="r-cruces" stroke-opacity=".45">
+    <path class="r-cruz" vector-effect="non-scaling-stroke" d="M196,100 h8 M200,96 v8"/>
+    <path class="r-cruz" vector-effect="non-scaling-stroke" d="M596,300 h8 M600,296 v8"/>
+    <path class="r-cruz" vector-effect="non-scaling-stroke" d="M996,100 h8 M1000,96 v8"/>
+    <path class="r-cruz" vector-effect="non-scaling-stroke" d="M196,500 h8 M200,496 v8"/>
+    <path class="r-cruz" vector-effect="non-scaling-stroke" d="M996,500 h8 M1000,496 v8"/>
+  </g>
+</svg>

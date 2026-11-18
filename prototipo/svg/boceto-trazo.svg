@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TRAZZO · Boceto a mano (assets/_web/trazo/boceto-mano.jpg, 1920x2560) redibujado como trazos.
+  Redibujado a mano (no Magnific: images_to_svg cotizaba 150 creditos, tope 30).
+  viewBox 1659x2212 = la foto a escala 0,864: se superpone 1:1 a la foto con el mismo encuadre
+  (object-fit/preserveAspectRatio iguales).
+  Reglas para animar:
+   - Cada <path> es una linea; el orden del documento ES el orden de dibujo (data-o).
+   - Solo stroke, sin rellenos. El grosor se fija desde CSS (--sw) para que se vea 1-1.6 px en pantalla.
+   - Se omitieron los textos manuscritos, flechas y numeros sueltos (ruido).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1659 2212" fill="none" stroke="#FFF8EF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" id="boceto-trazo">
+  <title>Boceto TRAZZO · planta a mano</title>
+  <!-- 1. Lindero y fachadas: el perimetro -->
+  <g id="b-perimetro">
+    <path data-o="1"  d="M190,327 C500,312 880,292 1160,318"/>
+    <path data-o="2"  d="M218,330 C214,880 222,1420 256,2012"/>
+    <path data-o="3"  d="M1022,312 C1030,520 1034,700 1045,820 L1310,2140"/>
+    <path data-o="4"  d="M260,2012 L1262,2002"/>
+  </g>
+  <!-- 2. Vecinos y gimnasio (fondo) -->
+  <g id="b-fondo">
+    <path data-o="5"  d="M182,305 L375,68"/>
+    <path data-o="6"  d="M236,322 L545,92"/>
+    <path data-o="7"  d="M548,68 C582,118 602,160 628,190 L625,300"/>
+    <path data-o="8"  d="M612,300 L612,228 L720,228 L722,300"/>
+    <path data-o="9"  d="M735,245 l8,-18 M757,241 l8,-18 M779,237 l8,-18 M801,233 l8,-18 M823,229 l8,-18 M845,225 l8,-18 M867,228 l8,-18 M889,238 l8,-18 M911,248 l8,-18 M933,258 l8,-18 M955,268 l8,-18 M977,278 l8,-18"/>
+  </g>
+  <!-- 3. Jardin: parrillera, grama, piscina, tumbonas -->
+  <g id="b-jardin">
+    <path data-o="10" d="M205,497 L392,497 L378,780 L218,790"/>
+    <path data-o="11" d="M218,550 h27 v32 h-27 M218,610 h27 v75 h-27 M218,692 h20 v35 h-20"/>
+    <path data-o="12" d="M315,410 C350,375 380,425 420,395 C452,400 470,425 470,470 C478,520 500,540 488,610 C512,640 538,662 545,722"/>
+    <path data-o="13" d="M840,400 C770,388 700,422 640,410 C602,430 582,450 565,465 C575,520 570,562 600,600 C620,650 640,692 655,740"/>
+    <path data-o="14" d="M465,705 C492,722 520,690 540,730 C580,742 612,720 650,745 C658,728 664,716 668,706"/>
+    <path data-o="15" d="M970,482 L718,482 L718,880"/>
+    <path data-o="16" d="M858,490 L870,880 M878,488 L884,880"/>
+    <path data-o="17" d="M908,548 h60 v22 h-60 z M903,603 h62 v25 h-62 z M910,665 h40 v38 h-40 z M908,728 h45 v35 h-45 z M895,793 h70 v28 h-70 z"/>
+  </g>
+  <!-- 4. Deck y puertas de vidrio -->
+  <g id="b-deck">
+    <path data-o="18" d="M220,792 L1040,800"/>
+    <path data-o="19" d="M245,822 v34 M267,822 v34 M289,822 v34 M311,822 v34 M333,822 v34 M355,822 v34 M377,823 v34 M399,823 v34 M421,823 v34 M443,823 v34 M465,823 v34 M487,823 v34 M509,824 v34 M531,824 v34 M553,824 v34 M575,824 v34 M597,824 v34 M619,824 v34 M641,825 v34 M663,825 v34 M685,825 v34 M707,825 v34 M729,825 v34 M751,825 v34 M773,826 v34 M795,826 v34 M817,826 v34 M839,826 v34 M861,826 v34 M883,826 v34 M905,827 v34 M927,827 v34 M949,827 v34 M971,827 v34 M993,827 v34 M1015,827 v34"/>
+    <path data-o="20" d="M230,890 h60 M360,889 h65 M495,888 h70 M625,886 h55"/>
+    <path data-o="21" d="M720,882 L1000,872"/>
+  </g>
+  <!-- 5. Interior: muros, divisiones, puerta -->
+  <g id="b-interior">
+    <path data-o="22" d="M718,880 L722,1110 L745,1145 L745,1440 L800,1440"/>
+    <path data-o="23" d="M745,1140 L1085,1130"/>
+    <path data-o="24" d="M855,1145 L860,1580"/>
+    <path data-o="25" d="M855,1340 L1115,1330"/>
+    <path data-o="26" d="M230,1078 h30 M285,1077 h30 M340,1077 h30"/>
+    <path data-o="27" d="M248,1325 h40 M318,1322 h45 M392,1318 h45 M468,1312 h55"/>
+    <path data-o="28" d="M678,1570 C688,1490 750,1452 800,1472 L796,1568"/>
+  </g>
+  <!-- 6. Fachada principal y estacionamiento -->
+  <g id="b-frente">
+    <path data-o="29" d="M275,1602 C600,1586 900,1580 1195,1615"/>
+    <path data-o="30" d="M655,1592 L655,1670 L785,1670 L785,1592"/>
+    <path data-o="31" d="M310,1700 L525,1695 M318,1700 L320,2010 M465,1700 L478,2010"/>
+    <path data-o="32" d="M318,1722 h112 v44 h-112 z M335,1810 h90 v40 h-90 z M345,1895 h88 v38 h-88 z"/>
+    <path data-o="33" d="M832,1645 h35 v75 h-35 z M903,1638 h38 v80 h-38 z M1045,1670 h115 v45 h-115 z M1050,1745 h90 v45 h-90 z"/>
+    <path data-o="34" d="M742,1690 l-8,10 M748,1711 l-8,10 M742,1732 l-8,10 M748,1753 l-8,10 M742,1774 l-8,10 M748,1795 l-8,10 M742,1816 l-8,10 M748,1837 l-8,10 M742,1858 l-8,10 M748,1879 l-8,10 M742,1900 l-8,10 M748,1921 l-8,10 M742,1942 l-8,10 M748,1963 l-8,10"/>
+  </g>
+</svg>

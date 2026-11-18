@@ -1,0 +1,61 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "GeneralContractor",
+      "@id": "https://PENDIENTE-DOMINIO/#empresa",
+      "name": "TRAZZO Construcciones",
+      "slogan": "Arquitectura de precisión",
+      "description": "Empresa familiar de remodelación y construcción residencial de alta gama en Caracas. Un solo equipo, de la planeación a la entrega.",
+      "url": "https://PENDIENTE-DOMINIO/",
+      "logo": "https://PENDIENTE-DOMINIO/wp-content/themes/tema-trazzo/assets/marca/logos/trazzo-apilado-verde-profundo.png",
+      "image": "https://PENDIENTE-DOMINIO/wp-content/themes/tema-trazzo/assets/_web/dia-noche/fachada-frontal-noche.jpg",
+      "taxID": "J-50762517-6",
+      "telephone": "+58 422-2635816",
+      "email": "gaguzman.t@gmail.com",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+58 422-2635816",
+          "contactType": "customer service",
+          "areaServed": "VE",
+          "availableLanguage": "es"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+1 786-484-7767",
+          "contactType": "customer service",
+          "availableLanguage": "es"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Principal Prados del Este, Parcela 16-A",
+        "addressLocality": "Caracas",
+        "addressCountry": "VE"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Caracas"
+      },
+      "knowsAbout": [
+        "Remodelación residencial",
+        "Remodelación integral",
+        "Construcción residencial"
+      ],
+      "geo": "PENDIENTE: coordenadas de Av. Principal Prados del Este, Parcela 16-A (latitud y longitud). Quitar esta línea si no se confirman.",
+      "openingHours": "PENDIENTE: horario de atención. Quitar esta línea si no se confirma.",
+      "sameAs": [
+        "PENDIENTE: URL de Instagram"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://PENDIENTE-DOMINIO/#sitio",
+      "url": "https://PENDIENTE-DOMINIO/",
+      "name": "TRAZZO Construcciones",
+      "inLanguage": "es-VE",
+      "publisher": { "@id": "https://PENDIENTE-DOMINIO/#empresa" }
+    }
+  ]
+}

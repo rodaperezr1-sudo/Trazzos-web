@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TRAZZO · Isologo "Z" de franjas.
+  REDIBUJADO a partir de assets/marca/logos/isologo-z-negro-jet.png (1861x1861). REEMPLAZAR POR EL SVG OFICIAL
+  exportado de trazzo-logos-editable.ai cuando exista (mismos ids para no tocar la animacion).
+  Geometria: franjas de 124 u de alto, inclinacion ascendente 15,2 grados (253/931), columnas de 931 u.
+  Animacion (sistema 7, loader): cada franja se revela a lo largo de su inclinacion con una mascara
+  (linea blanca de 150 u en <mask>, se anima stroke-dashoffset):
+   1) columna izquierda de abajo arriba: #iz-4, #iz-3, #iz-2, #iz-1
+   2) columna derecha de arriba abajo:   #de-1, #de-2, #de-3, #de-4
+   3) la Z al final: barra superior -> diagonal -> barra inferior (#z, mascaras .mz-1..3)
+  Color: una sola tinta del manual por uso (aqui beige arena; en claro, negro jet o verde profundo).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1861 1861" id="isologo-z">
+  <title>Isologo TRAZZO (redibujado)</title>
+  <defs>
+    <g id="iso-masks" fill="none" stroke="#fff" stroke-width="150" stroke-linecap="butt">
+      <mask id="m-iz-1" maskUnits="userSpaceOnUse" x="-100" y="-100" width="2061" height="2061"><path class="iso-rev" d="M-40,326 L971,51"/></mask>
+      <mask id="m-iz-2" maskUnits="userSpaceOnUse" x="-100" y="-100" width="2061" height="2061"><path class="iso-rev" d="M-40,573 L971,298"/></mask>
+      <mask id="m-iz-3" maskUnits="userSpaceOnUse" x="-100" y="-100" width="2061" height="2061"><path class="iso-rev" d="M-40,820 L971,545"/></mask>
+      <mask id="m-iz-4" maskUnits="userSpaceOnUse" x="-100" y="-100" width="2061" height="2061"><path class="iso-rev" d="M-40,1689 L971,1414"/></mask>
+      <mask id="m-de-1" maskUnits="userSpaceOnUse" x="-100" y="-100" width="2061" height="2061"><path class="iso-rev" d="M891,446 L1901,172"/></mask>
+      <mask id="m-de-2" maskUnits="userSpaceOnUse" x="-100" y="-100" width="2061" height="2061"><path class="iso-rev" d="M891,1314 L1901,1040"/></mask>
+      <mask id="m-de-3" maskUnits="userSpaceOnUse" x="-100" y="-100" width="2061" height="2061"><path class="iso-rev" d="M891,1562 L1901,1288"/></mask>
+      <mask id="m-de-4" maskUnits="userSpaceOnUse" x="-100" y="-100" width="2061" height="2061"><path class="iso-rev" d="M891,1810 L1901,1536"/></mask>
+      <mask id="m-z" maskUnits="userSpaceOnUse" x="-100" y="-100" width="2061" height="2061">
+        <path class="iso-rev mz-1" d="M911,688 L1901,419"/>
+        <path class="iso-rev mz-2" d="M1720,507 L170,1338" stroke-width="190"/>
+        <path class="iso-rev mz-3" d="M-40,1441 L951,1172"/>
+      </mask>
+    </g>
+  </defs>
+  <g id="iso-franjas" fill="#DFD7CA">
+    <polygon id="iz-1" mask="url(#m-iz-1)" points="0,253 931,0 931,124 0,377"/>
+    <polygon id="iz-2" mask="url(#m-iz-2)" points="0,500 931,247 931,371 0,624"/>
+    <polygon id="iz-3" mask="url(#m-iz-3)" points="0,747 931,495 931,619 0,871"/>
+    <polygon id="iz-4" mask="url(#m-iz-4)" points="0,1616 931,1363 931,1487 0,1740"/>
+    <polygon id="de-1" mask="url(#m-de-1)" points="931,373 1861,121 1861,245 931,497"/>
+    <polygon id="de-2" mask="url(#m-de-2)" points="931,1241 1861,989 1861,1113 931,1365"/>
+    <polygon id="de-3" mask="url(#m-de-3)" points="931,1489 1861,1237 1861,1361 931,1613"/>
+    <polygon id="de-4" mask="url(#m-de-4)" points="931,1737 1861,1485 1861,1609 931,1861"/>
+    <polygon id="z"    mask="url(#m-z)"    points="931,621 1861,368 1861,492 465,1242 931,1115 931,1240 0,1492 0,1368 1395,619 931,745"/>
+  </g>
+</svg>

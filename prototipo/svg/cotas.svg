@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TRAZZO · Cotas del capitulo 01. Mismo viewBox que boceto-trazo.svg (1659x2212): se superponen 1:1.
+  Sin medidas inventadas: las cotas se rotulan con nombres (FRENTE, FONDO, PISCINA), no con metros.
+  Remates oblicuos a ~15 grados de la vertical del trazo (eco de las franjas del isologo).
+  Orden de animacion: .c-ext (lineas de referencia) -> .c-line (linea de cota) -> .c-tick (remates) -> .c-dot (anclajes) -> .c-txt (rotulos).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1659 2212" fill="none" stroke="#FFF8EF" stroke-width="3" stroke-linecap="round" id="cotas">
+  <title>Cotas · capitulo 01</title>
+  <!-- Cota horizontal: frente -->
+  <g id="cota-frente">
+    <path class="c-ext"  d="M256,2030 V2112 M1262,2020 V2112"/>
+    <path class="c-line" d="M232,2092 H1286"/>
+    <path class="c-tick" d="M244,2116 L268,2068 M1250,2116 L1274,2068"/>
+    <text class="c-txt" x="759" y="2068" fill="#FFF8EF" stroke="none" font-family="Google Sans Flex, Google Sans, system-ui, sans-serif" font-size="34" font-weight="500" letter-spacing="8" text-anchor="middle">FRENTE</text>
+  </g>
+  <!-- Cota vertical: fondo -->
+  <g id="cota-fondo">
+    <path class="c-ext"  d="M200,330 H96 M236,2012 H96"/>
+    <path class="c-line" d="M120,306 V2036"/>
+    <path class="c-tick" d="M96,342 L144,318 M96,2024 L144,2000"/>
+    <text class="c-txt" x="98" y="1171" fill="#FFF8EF" stroke="none" font-family="Google Sans Flex, Google Sans, system-ui, sans-serif" font-size="34" font-weight="500" letter-spacing="8" text-anchor="middle" transform="rotate(-90 98 1171)">FONDO</text>
+  </g>
+  <!-- Cota parcial: piscina -->
+  <g id="cota-piscina">
+    <path class="c-ext"  d="M718,470 V420 M970,470 V420"/>
+    <path class="c-line" d="M700,436 H988"/>
+    <path class="c-tick" d="M706,458 L730,414 M958,458 L982,414"/>
+    <text class="c-txt" x="844" y="404" fill="#FFF8EF" stroke="none" font-family="Google Sans Flex, Google Sans, system-ui, sans-serif" font-size="30" font-weight="500" letter-spacing="7" text-anchor="middle">PISCINA</text>
+  </g>
+  <!-- Anclajes en las esquinas del lindero -->
+  <g id="anclajes" fill="#FFF8EF" stroke="none">
+    <circle class="c-dot" cx="218"  cy="330"  r="9"/>
+    <circle class="c-dot" cx="1022" cy="312"  r="9"/>
+    <circle class="c-dot" cx="256"  cy="2012" r="9"/>
+    <circle class="c-dot" cx="1262" cy="2002" r="9"/>
+  </g>
+</svg>

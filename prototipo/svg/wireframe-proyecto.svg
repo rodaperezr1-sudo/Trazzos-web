@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TRAZZO · Capitulo 02 RENDER. Lineas tecnicas sobre assets/_web/video/hero-1080-primer-fotograma.jpg (1920x1080).
+  Mismo viewBox que la foto: se superpone con preserveAspectRatio="xMidYMid slice" = object-fit:cover centrado.
+  Grosor desde CSS (--sw). Orden de dibujo = orden del documento:
+   .w-guia (guias de construccion, punteadas, mas tenues) -> .w-linea (aristas) -> .w-dot (anclaje) -> .w-label (PROYECTO).
+  Salida: las .w-linea se "destrazan" (dashoffset a -1) y las guias se apagan.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" fill="none" stroke="#FFF8EF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" id="wireframe">
+  <title>Wireframe · PROYECTO</title>
+  <g id="w-guias" stroke-opacity=".45">
+    <path class="w-guia" d="M0,600 H1920"/>
+    <path class="w-guia" d="M390,170 V700 M772,200 V700 M1165,300 V760 M1640,260 V820"/>
+  </g>
+  <g id="w-casa">
+    <path class="w-linea" d="M0,278 L810,322 L806,334 L0,300"/>
+    <path class="w-linea" d="M20,450 L775,462"/>
+    <path class="w-linea" d="M60,586 L770,580"/>
+    <path class="w-linea" d="M392,300 V585 M772,336 V580"/>
+  </g>
+  <g id="w-pabellon">
+    <path class="w-linea" d="M850,435 L1172,430 L1172,384 L1920,302"/>
+    <path class="w-linea" d="M850,452 L1920,412"/>
+    <path class="w-linea" d="M900,452 V612 M1165,442 V648"/>
+    <path class="w-linea" d="M1640,418 V708 M1758,416 V712"/>
+  </g>
+  <g id="w-exterior">
+    <path class="w-linea" d="M380,652 L800,628 L1150,700 L565,762 Z"/>
+    <path class="w-linea" d="M705,656 L930,646 L1000,680 L780,690 Z"/>
+    <path class="w-linea" d="M578,780 L1165,706 L1500,778 L888,904 Z"/>
+    <path class="w-linea" d="M222,598 L905,1080 M1180,1080 L1920,846"/>
+  </g>
+  <g id="w-etiqueta">
+    <circle class="w-dot" cx="1150" cy="700" r="5" fill="#FFF8EF" stroke="none"/>
+    <circle class="w-dot" cx="1150" cy="700" r="12" stroke-width="1"/>
+    <path class="w-linea w-leader" d="M1150,700 L1110,610 H950"/>
+    <text class="w-label" x="1110" y="596" fill="#FFF8EF" stroke="none" font-family="Google Sans Flex, Google Sans, system-ui, sans-serif" font-size="18" font-weight="500" letter-spacing="4.3" text-anchor="end">PROYECTO</text>
+  </g>
+</svg>

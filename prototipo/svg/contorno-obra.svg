@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TRAZZO · Capitulo 03 OBRA. Contorno del render sobre assets/_web/video/hero-1080-primer-fotograma.jpg (1920x1080).
+  Mismo encuadre que wireframe-proyecto.svg (slice centrado = object-fit:cover).
+  Capas: #o-relleno (beige arena 16 %, se "llena" de abajo arriba moviendo el rect del clipPath #o-clip)
+         #o-contorno (linea de 1.6 px en blanco calido, se dibuja primero)
+  Lectura: el contorno de lo disenado queda marcado y la obra lo va llenando.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" fill="none" id="contorno">
+  <title>Contorno · obra</title>
+  <defs>
+    <clipPath id="o-clip"><rect id="o-clip-rect" x="0" y="1080" width="1920" height="1080"/></clipPath>
+  </defs>
+  <g id="o-relleno" clip-path="url(#o-clip)" fill="#DFD7CA" fill-opacity=".2">
+    <path d="M0,278 L810,322 L806,334 L775,336 L772,582 L0,598 Z"/>
+    <path d="M850,435 L1172,430 L1172,384 L1920,302 L1920,412 L1760,416 L1758,712 L1640,706 L1162,648 L900,612 L898,452 L850,452 Z"/>
+    <path d="M380,652 L800,628 L1150,700 L565,762 Z"/>
+    <path d="M578,780 L1165,706 L1500,778 L888,904 Z"/>
+  </g>
+  <g id="o-contorno" stroke="#FFF8EF" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+    <path class="o-linea" d="M0,278 L810,322 L806,334 L775,336 L772,582 L0,598"/>
+    <path class="o-linea" d="M850,435 L1172,430 L1172,384 L1920,302 M1920,412 L1760,416 L1758,712 L1640,706 L1162,648 L900,612 L898,452 L850,452 Z"/>
+    <path class="o-linea" d="M380,652 L800,628 L1150,700 L565,762 Z"/>
+    <path class="o-linea" d="M578,780 L1165,706 L1500,778 L888,904 Z"/>
+  </g>
+  <g id="o-anclajes" fill="#FFF8EF">
+    <circle class="o-dot" cx="772"  cy="582" r="4.5"/>
+    <circle class="o-dot" cx="1162" cy="648" r="4.5"/>
+    <circle class="o-dot" cx="1758" cy="712" r="4.5"/>
+    <circle class="o-dot" cx="565"  cy="762" r="4.5"/>
+  </g>
+</svg>

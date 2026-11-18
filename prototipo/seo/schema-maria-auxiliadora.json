@@ -1,0 +1,48 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-maria-auxiliadora/#pagina",
+      "url": "https://PENDIENTE-DOMINIO/proyectos/quinta-maria-auxiliadora/",
+      "name": "Quinta María Auxiliadora | TRAZZO Construcciones",
+      "description": "Remodelación integral entregada en 2025: una casa existente transformada en residencia contemporánea. Un solo equipo, de la planeación a la entrega.",
+      "inLanguage": "es-VE",
+      "isPartOf": { "@id": "https://PENDIENTE-DOMINIO/#sitio" },
+      "about": { "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-maria-auxiliadora/#casa" },
+      "primaryImageOfPage": "PENDIENTE: foto real de la obra entregada (no hay fotos de María Auxiliadora en el material)",
+      "breadcrumb": { "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-maria-auxiliadora/#migas" }
+    },
+    {
+      "@type": "House",
+      "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-maria-auxiliadora/#casa",
+      "name": "Quinta María Auxiliadora",
+      "description": "Remodelación integral, entregada en 2025.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "PENDIENTE: zona de la obra",
+        "addressCountry": "VE"
+      },
+      "image": "PENDIENTE: fotos reales (antes y después)"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-maria-auxiliadora/#obra",
+      "name": "Quinta María Auxiliadora",
+      "about": { "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-maria-auxiliadora/#casa" },
+      "creativeWorkStatus": "Entregado",
+      "dateCreated": "2025",
+      "producer": { "@id": "https://PENDIENTE-DOMINIO/#empresa" },
+      "contributor": "PENDIENTE: arquitecto(s) e interiorista, si el cliente quiere darles crédito"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-maria-auxiliadora/#migas",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://PENDIENTE-DOMINIO/" },
+        { "@type": "ListItem", "position": 2, "name": "Proyectos", "item": "https://PENDIENTE-DOMINIO/proyectos/" },
+        { "@type": "ListItem", "position": 3, "name": "Quinta María Auxiliadora" }
+      ]
+    }
+  ]
+}

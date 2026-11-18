@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TRAZZO · Contador del capitulo 03. CIFRA PENDIENTE DE CONFIRMAR (1.352 m2, docs/PENDIENTES.md):
+  se muestra sin rotulo descriptivo hasta que Rogger confirme que es el area de construccion de Mil Lunas.
+  El JS reescribe #m2-valor de 0 a 1352 con separador de miles "." (es-VE) y tabular-nums.
+  Cifra: --fs-num (peso 200), unidad M² al 38 % en beige arena (regla del "+" del sistema).
+  Filete inferior (.m2-line) se dibuja de izquierda a derecha al arrancar el conteo.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 190" font-family="Google Sans Flex, Google Sans, system-ui, sans-serif" id="contador-m2">
+  <title>Contador 1.352 m2</title>
+  <text x="0" y="132" fill="#FFF8EF" font-size="150" font-weight="200" letter-spacing="-3" style="font-variant-numeric:tabular-nums"><tspan id="m2-valor">1.352</tspan><tspan id="m2-unidad" fill="#DFD7CA" font-size="57" font-weight="400" letter-spacing="1" dx="14" dy="-78">M²</tspan></text>
+  <path class="m2-line" d="M2,170 H420" stroke="#FFF8EF" stroke-opacity=".45" stroke-width="1" fill="none"/>
+</svg>
