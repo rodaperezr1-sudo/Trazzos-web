@@ -10,7 +10,7 @@
   <g id="et-01" class="etiqueta" transform="translate(0,20)">
     <text class="e-num" x="0" y="0" style="font-variant-numeric:tabular-nums">01</text>
     <path class="e-line" d="M32,-4.5 H80" stroke="#FFF8EF" stroke-width="1" fill="none"/>
-    <text class="e-name" x="94" y="0">TRAZO</text>
+    <text class="e-name" x="94" y="0">TRAZZO</text>
   </g>
   <g id="et-02" class="etiqueta" transform="translate(0,64)">
     <text class="e-num" x="0" y="0" style="font-variant-numeric:tabular-nums">02</text>

@@ -33,8 +33,16 @@
     let sec = null;
     for (const s of secciones) { const r = s.getBoundingClientRect(); if (r.top <= y && r.bottom > y) { sec = s; break; } }
     if (!sec) return;
-    header.classList.toggle('claro', sec.dataset.tono === 'claro');
-    header.classList.toggle('solid', sec.dataset.header !== 'transparente');
+    /* Al soltarse el stage fijo, el título y el isologo suben y cruzan el header.
+       Si el header sigue transparente, se leen encima del logo. Ahí pasa a sólido. */
+    const rec = document.getElementById('recorrido');
+    let despegado = false;
+    if (rec && sec.id === 'recorrido') {
+      const rr = rec.getBoundingClientRect();
+      despegado = rr.top < -1 && rr.bottom < innerHeight - 1;
+    }
+    header.classList.toggle('claro', !despegado && sec.dataset.tono === 'claro');
+    header.classList.toggle('solid', despegado || sec.dataset.header !== 'transparente');
   }
   addEventListener('scroll', headerSegunSeccion, { passive: true });
   addEventListener('resize', headerSegunSeccion);

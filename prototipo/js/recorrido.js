@@ -145,7 +145,7 @@
     if (box.hasAttribute('data-slice')) svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
   }));
   const etSvg = $('#etiqueta svg');
-  etSvg.setAttribute('viewBox', '0 0 260 28');
+  etSvg.setAttribute('viewBox', '0 0 320 28');
   $$('.etiqueta', etSvg).forEach(g => g.setAttribute('transform', 'translate(0,20)'));
 
   // Primer paint: fondo de sustitutos o secuencias (lo que haya)
@@ -175,10 +175,28 @@
   gsap.set('.r-cruz', { opacity: 0 });
   const rv = $$('.r-v').sort((a, b) => Math.abs(+a.getAttribute('d').match(/M(\d+)/)[1] - 600) - Math.abs(+b.getAttribute('d').match(/M(\d+)/)[1] - 600));
 
-  /* Contador m2: 1.352 m² PENDIENTE DE CONFIRMAR (docs/PENDIENTES.md). Se muestra sin rótulo. */
+  /* Contador m2: 1.352 m² PENDIENTE DE CONFIRMAR (docs/PENDIENTES.md). Se muestra sin rótulo.
+     El número sube una sola vez y se queda en 1.352 mientras el bloque está visible.
+     No se ata al scrub: si no, al bajar y subir pasa por 0, 424, 878… y no termina fijo. */
   const m2 = $('#m2-valor'), cnt = { v: 0 };
   const fmt = n => Math.round(n).toLocaleString('es-VE');
-  m2.textContent = '0';
+  let conteo = null, m2Listo = false;
+  function contarM2(mostrar) {
+    if (!m2) return;
+    if (!mostrar) {
+      if (conteo) { conteo.kill(); conteo = null; }
+      if (tl.progress() * 100 < 56) { cnt.v = 0; m2Listo = false; m2.textContent = ''; }
+      return;
+    }
+    if (m2Listo || cnt.v >= 1352) { m2.textContent = fmt(1352); return; }
+    if (conteo) return;
+    if (REDUCE) { cnt.v = 1352; m2Listo = true; m2.textContent = fmt(1352); return; }
+    conteo = gsap.to(cnt, {
+      v: 1352, duration: 1.35, ease: 'power1.out',
+      onUpdate: () => { m2.textContent = fmt(Math.max(1, cnt.v)); },
+      onComplete: () => { cnt.v = 1352; m2Listo = true; m2.textContent = fmt(1352); conteo = null; }
+    });
+  }
 
   /* ---------- 4. Línea de tiempo maestra (100 unidades) ---------- */
   const tl = gsap.timeline({ defaults: { ease: 'none' }, paused: true });
@@ -188,20 +206,16 @@
   const etIn = (n, at) => { tl.to(et(n), { opacity: 1, duration: 1.5 }, at); tl.to($('.e-line', et(n)), { strokeDashoffset: 0, duration: 2, ease: 'trazzo' }, at); };
   const etOut = (n, at) => tl.to(et(n), { opacity: 0, duration: 1.5 }, at);
 
-  // --- 01 TRAZO (0-25): mesa de dibujo verde profundo. La retícula y el boceto se dibujan solos al cargar
-  // (ver "Intro al cargar"), así la portada nunca se ve vacía. Con el scroll entran las cotas y la lámina se acerca.
-  tl.fromTo('#lamina', { y: 0 }, { y: '-3svh', duration: 21, ease: 'power1.inOut' }, 0);
-  tl.to('#cotas .c-ext', { strokeDashoffset: 0, duration: 1.5, stagger: .3 }, 3);
-  tl.to('#cotas .c-line', { strokeDashoffset: 0, duration: 2.2, stagger: .4, ease: 'trazzo' }, 4);
-  tl.to('#cotas .c-tick', { strokeDashoffset: 0, duration: .8, stagger: .3 }, 6.5);
-  tl.to('.c-dot', { opacity: 1, duration: .6, stagger: .15 }, 7);
-  tl.to('.c-txt', { opacity: 1, duration: 1.4, stagger: .3 }, 8);
+  // --- 01 (0-25): al cargar solo está la doble Z. El título entra con el segundo gesto de scroll.
+  gsap.set('#logo-portada', { xPercent: -50, yPercent: -50 });
+  tl.fromTo('#logo-portada', { yPercent: -50 }, { yPercent: -62, duration: 18, ease: 'power1.inOut' }, 0);
+  textoIn(1, 7);
+  tl.fromTo('.cap-cta.c1', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 3, ease: 'trazzo' }, 8);
   textoOut(1, 21.5);
   tl.to('.cap-cta.c1', { autoAlpha: 0, duration: 2 }, 20);
+  tl.to('#logo-portada', { opacity: 0, duration: 4, ease: 'power1.in' }, 20);
 
-  // --- 02 RENDER (25-50): V1 boceto -> render. La mesa oscura se aclara a blanco cálido y, encima,
-  // el boceto de G1 (sobre blanco) se imprime con multiply y pasa a render.
-  tl.to('#lamina', { scale: 1.1, opacity: 0, duration: 5, ease: 'power1.in' }, 21);
+  // --- 02 RENDER (25-50): la transición del lienzo y las líneas técnicas. Sin el boceto de encima.
   tl.to('#papel-blanco', { opacity: 1, duration: 4, ease: 'power1.inOut' }, 20.5);
   tl.to('#lienzo', { opacity: 1, duration: 3 }, 22.5);
   tl.to('#velo', { opacity: .66, duration: 7 }, 24);
@@ -226,10 +240,9 @@
   tl.to(oLineas, { strokeDashoffset: 0, duration: 4, stagger: 1.2, ease: 'power1.inOut' }, 51);
   tl.to('.o-dot', { opacity: 1, duration: .6, stagger: .2 }, 56.5);
   textoIn(3, 53);
-  tl.to('#m2-box', { opacity: 1, duration: 2 }, 56);
-  tl.to('.m2-line', { strokeDashoffset: 0, duration: 4, ease: 'trazzo' }, 57);
+  tl.to('#m2-box', { opacity: 1, duration: 1.2 }, 56);
+  tl.to('.m2-line', { strokeDashoffset: 0, duration: 4, ease: 'trazzo' }, 56.4);
   tl.to('#o-clip-rect', { attr: { y: 250 }, duration: 12, ease: 'power1.inOut' }, 58);
-  tl.to(cnt, { v: 1352, duration: 12, ease: 'power1.out', onUpdate: () => m2.textContent = fmt(cnt.v) }, 58);
   tl.to('#velo', { opacity: .5, duration: 12 }, 58);
   tl.to(['#o-contorno', '#o-relleno', '#o-anclajes'], { opacity: 0, duration: 3 }, 71);
   tl.to('#m2-box', { opacity: 0, duration: 3 }, 71.5);
@@ -266,6 +279,8 @@
     pintarFondo(p);
     asegurarVentana(p);
     lienzoEl.classList.toggle('normal', p > 33);   // multiply solo mientras hay papel debajo
+    // Visible entre la entrada (56) y el fundido de salida (71.5). Ahí el número se queda en 1.352.
+    contarM2(p >= 56 && p < 73.5);
   }
   tl.eventCallback('onUpdate', alActualizar);
 
@@ -278,7 +293,7 @@
   if (!REDUCE) {
     ScrollTrigger.create({ trigger: '#recorrido', start: 'top top', end: 'bottom bottom', scrub: .6, animation: tl, onUpdate: s => indicadores(s.progress) });
   } else {
-    const fin = [.21, .40, .70, 1];
+    const fin = [.14, .40, .70, 1];
     ScrollTrigger.create({ trigger: '#recorrido', start: 'top top', end: 'bottom bottom',
       onUpdate: s => { const c = Math.min(3, Math.floor(s.progress * 4)); tl.progress(fin[c]); indicadores(s.progress); } });
     tl.progress(fin[0]);
@@ -290,22 +305,14 @@
   TZ.recorrido = { tl, S: () => S, reales: () => usandoReales };
   await Promise.race([listaInicial, new Promise(r => setTimeout(r, 3000))]);
   TZ.quitarLoader && TZ.quitarLoader();
-  // La retícula y el boceto se dibujan solos (no dependen del scroll): la portada arranca viva.
+  // La retícula se dibuja sola. La doble Z ya está visible: el título espera al scroll.
   if (REDUCE) {
     gsap.set(rv, { scaleY: 1 }); gsap.set('.r-h', { scaleX: 1 }); gsap.set('.r-cruz', { opacity: 1 });
-    gsap.set(bPaths, { strokeDashoffset: 0 });
   } else {
     const intro = gsap.timeline({ delay: .15 });
     intro.to(rv, { scaleY: 1, duration: 1.1, stagger: .06, ease: 'trazzo' }, 0);
     intro.to('.r-h', { scaleX: 1, duration: 1.1, stagger: .08, ease: 'trazzo' }, .3);
     intro.to('.r-cruz', { opacity: 1, duration: .5, stagger: .05 }, 1.2);
-    intro.to(bPaths, { strokeDashoffset: 0, duration: .55, stagger: 2.6 / bPaths.length, ease: 'power1.inOut' }, .4);
-  }
-  if (!REDUCE) {
-    // I-1: la entrada anima los envoltorios internos (.entra); la línea de tiempo del scroll es dueña de la opacidad
-    // de .cap-title y .cap-cta, así que no se pisan. Además solo corre si la página está arriba del todo.
-    if (scrollY < 5) gsap.from('.entra', { opacity: 0, y: 24, duration: 1.2, ease: 'trazzo', delay: .2, stagger: .15 });
-    gsap.fromTo($('.e-line', et(1)), { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1, ease: 'trazzo', delay: .1 });
   }
 
   /* ---------- 8. Si aún no hay manifest, se revisa cada 20 s ---------- */

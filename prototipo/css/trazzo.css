@@ -25,7 +25,7 @@
   --swb:4; --swc:3; --swr:1.6; --tb:calc(13svh + 72px);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;background:var(--jet)}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 body{margin:0;font-family:var(--font);font-size:var(--fs-body);line-height:1.6;color:var(--calido);background:var(--profundo);
@@ -83,7 +83,7 @@ button{background:none;border:0;cursor:pointer}
    PARTE: header (header.php)
    Se adapta por sección: cada <section> lleva data-tono="oscuro|claro".
    ========================================================= */
-.header{position:fixed;inset:0 0 auto 0;height:var(--header-h);z-index:100;display:flex;align-items:center;color:var(--calido);
+.header{position:fixed;inset:0 0 auto 0;height:var(--header-h);z-index:400;isolation:isolate;display:flex;align-items:center;color:var(--calido);
   transition:background .4s var(--ease),color .4s var(--ease)}
 .header .wrap{display:flex;align-items:center;justify-content:space-between}
 .header.solid{background:rgba(30,34,32,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
@@ -129,17 +129,15 @@ button{background:none;border:0;cursor:pointer}
 /* =========================================================
    1. Recorrido "Del trazo a la obra" (Home)
    ========================================================= */
-#recorrido{position:relative;height:450vh}
-.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--profundo);isolation:isolate}
+#recorrido{position:relative;z-index:1;height:450vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--jet);isolation:isolate}
 .layer{position:absolute;inset:0}
-/* Portada: mesa de dibujo verde profundo con un halo oliva que respira detrás de la lámina, y la textura
-   del papel G6 muy suave encima. El boceto (blanco cálido) se lee como plano técnico. */
-#papel{background:var(--profundo);overflow:hidden}
+/* Portada: negro jet. Un halo verde profundo muy bajo, y la textura del papel casi apagada. */
+#papel{background:var(--jet);overflow:hidden}
 #papel::before{content:"";position:absolute;inset:-15%;
-  background:radial-gradient(42% 48% at 68% 46%,rgba(75,82,64,.95) 0%,rgba(75,82,64,.45) 45%,rgba(75,82,64,0) 75%),
-             radial-gradient(35% 40% at 12% 90%,rgba(223,215,202,.10) 0%,rgba(223,215,202,0) 70%);
+  background:radial-gradient(40% 46% at 64% 42%,rgba(30,34,32,.42) 0%,rgba(30,34,32,0) 70%);
   animation:halo 14s ease-in-out infinite alternate}
-#papel::after{content:"";position:absolute;inset:0;background:url("../img/papel.webp") center/cover no-repeat;mix-blend-mode:soft-light;opacity:.28}
+#papel::after{content:"";position:absolute;inset:0;background:url("../img/papel.webp") center/cover no-repeat;mix-blend-mode:soft-light;opacity:.07}
 @keyframes halo{from{transform:translate3d(-2%,1%,0) scale(1)}to{transform:translate3d(3%,-2%,0) scale(1.08)}}
 @media (prefers-reduced-motion:reduce){#papel::before{animation:none}}
 #papel-blanco{background:var(--calido);opacity:0}
@@ -156,6 +154,9 @@ button{background:none;border:0;cursor:pointer}
 #reticula-box svg{width:100%;height:100%}
 
 .lamina{position:absolute;top:9svh;right:8vw;height:80svh;aspect-ratio:1659/2212;will-change:transform,opacity}
+.lamina[hidden]{display:block;visibility:hidden;pointer-events:none}
+.logo-portada{position:absolute;left:50%;top:30%;width:min(22vw,240px);z-index:3;pointer-events:none}
+.logo-portada img{width:100%;height:auto}
 .lamina svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 #boceto-trazo path{stroke-width:var(--swb)}
 #cotas path{stroke-width:var(--swc)}
@@ -168,14 +169,14 @@ button{background:none;border:0;cursor:pointer}
 #m2-box{position:absolute;right:var(--gutter);bottom:calc(var(--tb) + 1rem);width:clamp(200px,25vw,360px);opacity:0}
 #m2-box svg{width:100%;height:auto;overflow:visible}
 
-.cap-title{position:absolute;left:var(--gutter);bottom:var(--tb);margin:0;max-width:min(52vw,820px);font-size:var(--fs-display);font-weight:300;
-  letter-spacing:.06em;line-height:1.02;text-transform:uppercase;opacity:0}
-.cap-title.c1{opacity:1;--w1:calc(92vw - 60svh - var(--gutter) - 48px);max-width:var(--w1);font-size:clamp(2.2rem,calc(var(--w1) / 8.6),6rem)}
+.cap-title{position:absolute;left:var(--gutter);bottom:var(--tb);margin:0;max-width:min(46vw,680px);font-size:clamp(2.4rem,4.4vw,4.25rem);font-weight:300;
+  letter-spacing:.06em;line-height:1.18;text-transform:uppercase;opacity:0}
+.cap-title.c1{opacity:0;--w1:calc(92vw - 60svh - var(--gutter) - 48px);max-width:var(--w1);font-size:clamp(2.2rem,calc(var(--w1) / 8.6),6rem)}
 .cap-title.c4{max-width:min(70vw,1100px)}
 .cap-cta{position:absolute;left:var(--gutter);bottom:calc(var(--tb) - 52px - 2rem);opacity:0;visibility:hidden}
-.cap-cta.c1{opacity:1;visibility:visible}
+.cap-cta.c1{opacity:0;visibility:hidden}
 
-#etiqueta{position:absolute;left:var(--gutter);top:calc(var(--header-h) + 14px);width:260px;height:28px}
+#etiqueta{display:none;position:absolute;left:var(--gutter);top:calc(var(--header-h) + 14px);width:320px;height:28px}
 #etiqueta svg{width:100%;height:100%;overflow:visible}
 #etiqueta .etiqueta{opacity:0}
 #etiqueta #et-01{opacity:1}
@@ -242,7 +243,7 @@ button{background:none;border:0;cursor:pointer}
 /* =========================================================
    4. Día / Noche: timelapse por scroll + comparador
    ========================================================= */
-#timelapse{position:relative;height:260vh;background:var(--jet)}
+#timelapse{position:relative;z-index:1;height:260vh;background:var(--jet)}
 #timelapse .tl-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 #tl-lienzo{width:100%;height:100%}
 #timelapse .tl-ui{position:absolute;left:var(--gutter);right:var(--gutter);bottom:calc(2rem + env(safe-area-inset-bottom));display:flex;justify-content:space-between;align-items:center;gap:1rem;
@@ -286,7 +287,7 @@ button{background:none;border:0;cursor:pointer}
 /* =========================================================
    6. Cierre
    ========================================================= */
-.cierre{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;isolation:isolate;background:var(--profundo)}
+.cierre{position:relative;z-index:1;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;isolation:isolate;background:var(--profundo)}
 .cierre > img.fondo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .cierre::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 60% 45% at 50% 50%,rgba(29,28,27,.45) 0%,rgba(29,28,27,0) 100%),linear-gradient(180deg,rgba(29,28,27,.6) 0%,rgba(29,28,27,.35) 45%,rgba(29,28,27,.85) 100%)}
 .cierre .inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:2.6rem;padding:var(--section) var(--gutter)}
@@ -295,7 +296,7 @@ button{background:none;border:0;cursor:pointer}
 /* =========================================================
    PARTE: footer (footer.php)
    ========================================================= */
-.footer{background:var(--jet);color:var(--calido-70);padding:clamp(4rem,8vw,7rem) 0 2rem;font-size:var(--fs-small)}
+.footer{position:relative;z-index:2;background:var(--jet);color:var(--calido-70);padding:clamp(4rem,8vw,7rem) 0 2rem;font-size:var(--fs-small)}
 .footer .top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:clamp(3rem,6vw,5rem);border-bottom:1px solid var(--calido-15)}
 .footer .brand .logo{margin-bottom:1.4rem}
 .footer .brand .logo img{height:64px}
@@ -450,6 +451,7 @@ fieldset.campo{border:0;margin:0;padding:0}
   .btn{height:56px}
   /* Recorrido */
   .lamina{top:13svh;right:0;left:0;margin:0 auto;height:50svh}
+  .logo-portada{width:min(62vw,260px);top:32%}
   :root{--tb:calc(6.6rem + 56px + 1.4rem + env(safe-area-inset-bottom))}
   .cap-title{max-width:calc(100vw - 2*var(--gutter))}
   .cap-title,.cap-title.c1,.cap-title.c4{font-size:var(--t-movil);max-width:calc(100vw - 2*var(--gutter))}

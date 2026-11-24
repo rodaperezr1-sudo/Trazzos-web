@@ -148,9 +148,13 @@
 
     <!-- Capa superior (motion graphics) -->
     <div class="layer" id="reticula-box" data-svg="reticula.svg"></div>
-    <div class="lamina" id="lamina">
+    <!-- El plano (boceto + cotas) ya no se dibuja: la portada es el logo. La lámina queda en el DOM por las medidas del trazo. -->
+    <div class="lamina" id="lamina" hidden>
       <div data-svg="boceto-trazo.svg"></div>
       <div data-svg="cotas.svg"></div>
+    </div>
+    <div class="logo-portada" id="logo-portada">
+      <img src="../assets/marca/logos/zz-doble.png" alt="" width="1024" height="1023">
     </div>
     <div class="layer ov" data-svg="wireframe-proyecto.svg" data-slice></div>
     <div class="layer ov" data-svg="contorno-obra.svg" data-slice></div>
@@ -182,7 +186,7 @@
     <div class="intro">
       <!-- Eyebrow sin aprobar en 02-textos (PENDIENTES.md) -->
       <p class="eyebrow">Quiénes somos</p>
-      <div class="title t-h1 quienes-t"><h2><em>Empresa familiar.</em></h2> <p>Transformamos casas en residencias sólidas, precisas y serenas.</p></div>
+      <div class="title t-h1 quienes-t"><h2><em>Empresa de construcción de alta gama.</em></h2> <p>Transformamos casas en residencias sólidas, precisas y serenas.</p></div>
     </div>
     <ul class="cifras" id="cifras" role="list">
       <li class="cifra"><div class="num" aria-hidden="true"><sup>+</sup><span data-to="10">0</span></div><p class="lbl"><span class="sr-only">Más de 10 </span>Años de obra</p></li>
