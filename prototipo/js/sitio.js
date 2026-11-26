@@ -49,6 +49,15 @@
   headerSegunSeccion();
   TZ.headerSegunSeccion = headerSegunSeccion;
 
+  /* En el Home el menú no está al cargar: entra con el primer scroll. */
+  if (header && header.classList.contains('header-espera')) {
+    const menuSegunScroll = () => {
+      header.classList.toggle('header-listo', (window.scrollY || 0) > 28);
+    };
+    addEventListener('scroll', menuSegunScroll, { passive: true });
+    menuSegunScroll();
+  }
+
   /* ---------- Menú móvil ---------- */
   const burger = $('#burger'), menu = $('#mobileMenu');
   if (burger && menu) {

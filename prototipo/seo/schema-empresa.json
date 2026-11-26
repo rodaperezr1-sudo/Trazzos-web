@@ -6,7 +6,7 @@
       "@id": "https://PENDIENTE-DOMINIO/#empresa",
       "name": "TRAZZO Construcciones",
       "slogan": "Arquitectura de precisión",
-      "description": "Empresa familiar de remodelación y construcción residencial de alta gama en Caracas. Un solo equipo, de la planeación a la entrega.",
+      "description": "Obras sólidas, precisas y serenas en Caracas. Más de 10 años y un solo equipo, de la planeación a la entrega.",
       "url": "https://PENDIENTE-DOMINIO/",
       "logo": "https://PENDIENTE-DOMINIO/wp-content/themes/tema-trazzo/assets/marca/logos/trazzo-apilado-verde-profundo.png",
       "image": "https://PENDIENTE-DOMINIO/wp-content/themes/tema-trazzo/assets/_web/dia-noche/fachada-frontal-noche.jpg",
@@ -39,8 +39,8 @@
         "name": "Caracas"
       },
       "knowsAbout": [
-        "Remodelación residencial",
-        "Remodelación integral",
+        "Construcción residencial",
+        "Construcción integral",
         "Construcción residencial"
       ],
       "geo": "PENDIENTE: coordenadas de Av. Principal Prados del Este, Parcela 16-A (latitud y longitud). Quitar esta línea si no se confirman.",

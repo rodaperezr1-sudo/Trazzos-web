@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!-- SEO: docs/SEO.md §1.1 (Rank Math en WordPress) -->
-<title>TRAZZO Construcciones | Remodelación residencial de alta gama en Caracas</title>
-<meta name="description" content="Empresa familiar con más de 10 años transformando casas en residencias contemporáneas en Caracas. Un solo equipo, de la planeación a la entrega.">
+<title>TRAZZO Construcciones | Arquitectura de precisión en Caracas</title>
+<meta name="description" content="Obras sólidas, precisas y serenas en Caracas. Más de 10 años y un solo equipo, de la planeación a la entrega.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TRAZZO Construcciones">
 <meta property="og:locale" content="es_VE">
-<meta property="og:title" content="TRAZZO Construcciones | Remodelación residencial de alta gama en Caracas">
-<meta property="og:description" content="Empresa familiar con más de 10 años transformando casas en residencias contemporáneas en Caracas. Un solo equipo, de la planeación a la entrega.">
+<meta property="og:title" content="TRAZZO Construcciones | Arquitectura de precisión en Caracas">
+<meta property="og:description" content="Obras sólidas, precisas y serenas en Caracas. Más de 10 años y un solo equipo, de la planeación a la entrega.">
 <meta property="og:image" content="../assets/_web/dia-noche/fachada-frontal-noche.jpg">
 <meta property="og:image:alt" content="Render de Quinta Mil Lunas: fachada frontal de noche, con la iluminación encendida">
 <meta name="twitter:card" content="summary_large_image">
@@ -31,7 +31,7 @@
       "@id": "https://PENDIENTE-DOMINIO/#empresa",
       "name": "TRAZZO Construcciones",
       "slogan": "Arquitectura de precisión",
-      "description": "Empresa familiar de remodelación y construcción residencial de alta gama en Caracas. Un solo equipo, de la planeación a la entrega.",
+      "description": "Obras sólidas, precisas y serenas en Caracas. Más de 10 años y un solo equipo, de la planeación a la entrega.",
       "url": "https://PENDIENTE-DOMINIO/",
       "logo": "https://PENDIENTE-DOMINIO/wp-content/themes/tema-trazzo/assets/marca/logos/trazzo-apilado-verde-profundo.png",
       "image": "https://PENDIENTE-DOMINIO/wp-content/themes/tema-trazzo/assets/_web/dia-noche/fachada-frontal-noche.jpg",
@@ -64,8 +64,8 @@
         "name": "Caracas"
       },
       "knowsAbout": [
-        "Remodelación residencial",
-        "Remodelación integral",
+        "Construcción residencial",
+        "Construcción integral",
         "Construcción residencial"
       ],
       "geo": "PENDIENTE: coordenadas de Av. Principal Prados del Este, Parcela 16-A (latitud y longitud). Quitar esta línea si no se confirman.",
@@ -99,10 +99,13 @@
 </svg>
 <!-- /PARTE: sprite -->
 
-<div class="loader" aria-hidden="true"><span class="iso-mask"></span></div>
+<div class="loader loader-piedra" aria-hidden="true">
+  <div class="barrido"></div>
+  <div class="loader-z zz-piedra"></div>
+</div>
 
 <!-- PARTE: header (header.php) · fuente: prototipo/partes/header.html -->
-<header class="header" id="header">
+<header class="header header-espera" id="header">
   <div class="wrap">
     <a href="index.html" class="logo" aria-label="TRAZZO Construcciones, inicio">
       <img class="l-claro" src="../assets/marca/logos/trazzo-horizontal-blanco-calido.png" alt="TRAZZO Construcciones" width="128" height="17">
@@ -143,6 +146,7 @@
     <div class="layer" id="luz"></div>
     <div class="layer" id="velo"></div>
     <div class="layer" id="lectura"></div>
+    <div class="layer" id="sombra-titulo" aria-hidden="true"></div>
     <div class="layer" id="lateral"></div>
     <div class="layer" id="pie"></div>
 
@@ -153,9 +157,8 @@
       <div data-svg="boceto-trazo.svg"></div>
       <div data-svg="cotas.svg"></div>
     </div>
-    <div class="logo-portada" id="logo-portada">
-      <img src="../assets/marca/logos/zz-doble.png" alt="" width="1024" height="1023">
-    </div>
+    <div class="logo-portada zz-piedra" id="logo-portada" aria-hidden="true"></div>
+    <div class="scroll-hint" id="scroll-hint" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="layer ov" data-svg="wireframe-proyecto.svg" data-slice></div>
     <div class="layer ov" data-svg="contorno-obra.svg" data-slice></div>
     <div id="iso-box" data-svg="isologo-z.svg"></div>
@@ -163,31 +166,63 @@
     <div id="m2-box" data-svg="contador-m2.svg"></div>
 
     <!-- Texto (docs/02-textos.md) -->
-    <h1 class="cap-title c1"><span class="sr-only">Remodelación residencial de alta gama · Caracas. </span><span class="entra">Arquitectura de precisión.</span></h1>
+    <h1 class="cap-title c1"><span class="sr-only">Construcción residencial de alta gama · Caracas. </span><span class="entra">Arquitectura de precisión.</span></h1>
     <p class="cap-title c2">Lo diseñado…</p>
     <p class="cap-title c3">…llega intacto a la obra.</p>
     <p class="cap-title c4">Construyamos con intención.</p>
-    <div class="cap-cta c1"><a class="btn btn-primary entra" href="proyectos.html">Ver proyectos <svg class="arrow"><use href="#arrow"/></svg></a></div>
-    <div class="cap-cta c4"><a class="btn btn-primary" href="proyectos.html">Ver proyectos <svg class="arrow"><use href="#arrow"/></svg></a></div>
 
     <!-- Fijos -->
     <div id="etiqueta" data-svg="etiquetas.svg" aria-hidden="true"></div>
     <div class="rec-ui" aria-hidden="true">
-      <span class="etq">Remodelación residencial de alta gama · Caracas</span>
-      <div class="progreso"><span id="p-cap">01</span><span class="bar"><i id="p-bar"></i></span><span class="tot">04</span></div>
+      <span class="etq">Construcción residencial de alta gama · Caracas</span>
+      <div class="progreso"><span id="p-cap">00</span><span class="bar"><i id="p-bar"></i></span><span class="tot">04</span></div>
       <span class="desliza" id="desliza"><span>Desliza</span><i></i></span>
     </div>
   </div>
 </section>
 
-<!-- ================= 2. QUIÉNES SOMOS + CIFRAS ================= -->
+<!-- ================= 2. QUIÉNES SOMOS ================= -->
 <section class="section dark quienes" id="nosotros" data-tono="oscuro">
   <div class="wrap">
     <div class="intro">
       <!-- Eyebrow sin aprobar en 02-textos (PENDIENTES.md) -->
       <p class="eyebrow">Quiénes somos</p>
-      <div class="title t-h1 quienes-t"><h2><em>Empresa de construcción de alta gama.</em></h2> <p>Transformamos casas en residencias sólidas, precisas y serenas.</p></div>
+      <div class="title t-h1 quienes-t"><h2><em>Empresa de construcción de alta gama.</em></h2> <p>Construimos obras sólidas, precisas y serenas.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- ================= 3. GALERÍA ACORDEÓN ================= -->
+<section class="section sand" id="galeria" data-tono="claro">
+  <div class="wrap">
+    <div class="galeria-head">
+      <p class="eyebrow">Galería</p>
+    </div>
+    <!-- Rótulos de tarjeta (espacio + proyecto) sin aprobar en 02-textos (PENDIENTES.md) -->
+    <div class="acordeon" id="acordeon">
+      <a href="proyecto-mil-lunas.html" class="card is-open"><img src="../assets/_web/galeria/portadas/01-mil-lunas.jpg" alt="Fachada de Quinta Mil Lunas" decoding="async">
+        <span class="n">01</span></a>
+      <button type="button" class="card"><img src="../assets/_web/galeria/portadas/02-san-antonio.jpg?v=3" alt="Casa en San Antonio al anochecer, con piscina y terraza" loading="lazy" decoding="async">
+        <span class="n">02</span></button>
+      <button type="button" class="card"><img src="../assets/_web/galeria/portadas/03-tereke.jpg?v=4" alt="Escalera y cocina de Tereke" loading="lazy" decoding="async">
+        <span class="n">03</span></button>
+      <button type="button" class="card"><img src="../assets/_web/galeria/portadas/04-oficina-morocho.jpg?v=4" alt="Recepción de Oficina Morocho, con muro azul y sala de vidrio" loading="lazy" decoding="async">
+        <span class="n">04</span></button>
+      <button type="button" class="card"><img src="../assets/_web/galeria/portadas/05-casa-tony.jpg?v=6" alt="Casa de Tony, volumen blanco y muro de ladrillo" style="object-position:66% 40%" loading="lazy" decoding="async">
+        <span class="n">05</span></button>
+      <button type="button" class="card"><img src="../assets/_web/galeria/portadas/06-aurora.jpg?v=4" alt="Casa de Aurora, fachada de piedra y volumen oscuro" style="object-position:36% 42%" loading="lazy" decoding="async">
+        <span class="n">06</span></button>
+      <div class="card card-soon"><span class="n">07</span><span class="soon"><i aria-hidden="true"></i><span>Próximamente</span></span></div>
+    </div>
+    <div class="galeria-foot">
+      <span class="hint" aria-hidden="true">01 — 07</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. CIFRAS ================= -->
+<section class="section dark cifras-sec" id="cifras-sec" data-tono="oscuro">
+  <div class="wrap">
     <ul class="cifras" id="cifras" role="list">
       <li class="cifra"><div class="num" aria-hidden="true"><sup>+</sup><span data-to="10">0</span></div><p class="lbl"><span class="sr-only">Más de 10 </span>Años de obra</p></li>
       <!-- "+15 obras" PENDIENTE DE CONFIRMAR con el cliente (docs/PENDIENTES.md) -->
@@ -198,73 +233,15 @@
   </div>
 </section>
 
-<!-- ================= 3. GALERÍA ACORDEÓN ================= -->
-<section class="section sand" id="galeria" data-tono="claro">
-  <div class="wrap">
-    <div class="galeria-head">
-      <p class="eyebrow">Galería</p>
-      <h2 class="title t-h1">Proyectos</h2>
-    </div>
-    <!-- Rótulos de tarjeta (espacio + proyecto) sin aprobar en 02-textos (PENDIENTES.md) -->
-    <div class="acordeon" id="acordeon">
-      <a href="proyecto-mil-lunas.html" class="card is-open"><img src="../assets/_web/galeria/piscina.jpg" alt="Render de Quinta Mil Lunas: piscina con salón hundido, casa de piscina y la casa al fondo" loading="lazy" decoding="async">
-        <span class="n">01</span><span class="v-lbl" aria-hidden="true">Piscina</span>
-        <div class="info"><div><h3>Piscina</h3><p>Quinta Mil Lunas</p></div><span class="go"><svg width="16" height="16"><use href="#arrow-ne"/></svg></span></div></a>
-      <a href="proyecto-mil-lunas.html" class="card"><img src="../assets/_web/galeria/bar-piscina.jpg" alt="Render de Quinta Mil Lunas: bar de la piscina al atardecer, con barra de madera y sillones de cuero" loading="lazy" decoding="async">
-        <span class="n">02</span><span class="v-lbl" aria-hidden="true">Bar</span>
-        <div class="info"><div><h3>Bar</h3><p>Quinta Mil Lunas</p></div><span class="go"><svg width="16" height="16"><use href="#arrow-ne"/></svg></span></div></a>
-      <a href="proyecto-mil-lunas.html" class="card"><img src="../assets/_web/galeria/cine.jpg" alt="Render de Quinta Mil Lunas: sala de cine con paredes de madera y sofá modular" loading="lazy" decoding="async">
-        <span class="n">03</span><span class="v-lbl" aria-hidden="true">Cine</span>
-        <div class="info"><div><h3>Cine</h3><p>Quinta Mil Lunas</p></div><span class="go"><svg width="16" height="16"><use href="#arrow-ne"/></svg></span></div></a>
-      <a href="proyecto-mil-lunas.html" class="card"><img src="../assets/_web/galeria/cocina-01.jpg" alt="Render de Quinta Mil Lunas: cocina con isla de mármol oscuro y muebles de madera" loading="lazy" decoding="async">
-        <span class="n">04</span><span class="v-lbl" aria-hidden="true">Cocina</span>
-        <div class="info"><div><h3>Cocina</h3><p>Quinta Mil Lunas</p></div><span class="go"><svg width="16" height="16"><use href="#arrow-ne"/></svg></span></div></a>
-      <a href="proyecto-mil-lunas.html" class="card"><img src="../assets/_web/galeria/sala-02.jpg" alt="Render de Quinta Mil Lunas: sala de doble altura con sofá en L, iluminada de noche" loading="lazy" decoding="async">
-        <span class="n">05</span><span class="v-lbl" aria-hidden="true">Sala</span>
-        <div class="info"><div><h3>Sala</h3><p>Quinta Mil Lunas</p></div><span class="go"><svg width="16" height="16"><use href="#arrow-ne"/></svg></span></div></a>
-      <a href="proyecto-mil-lunas.html" class="card"><img src="../assets/_web/galeria/bano-principal.jpg" alt="Render de Quinta Mil Lunas: baño principal con lavamanos de mármol y madera" loading="lazy" decoding="async">
-        <span class="n">06</span><span class="v-lbl" aria-hidden="true">Baño</span>
-        <div class="info"><div><h3>Baño</h3><p>Quinta Mil Lunas</p></div><span class="go"><svg width="16" height="16"><use href="#arrow-ne"/></svg></span></div></a>
-      <a href="proyecto-mil-lunas.html" class="card"><img src="../assets/_web/galeria/habitacion-01.jpg" alt="Render de Quinta Mil Lunas: habitación principal con cabecero tapizado y luz cálida" loading="lazy" decoding="async">
-        <span class="n">07</span><span class="v-lbl" aria-hidden="true">Habitación</span>
-        <div class="info"><div><h3>Habitación</h3><p>Quinta Mil Lunas</p></div><span class="go"><svg width="16" height="16"><use href="#arrow-ne"/></svg></span></div></a>
-    </div>
-    <div class="galeria-foot">
-      <span class="hint" aria-hidden="true">01 — 07</span>
-      <a class="btn btn-dark" href="proyectos.html">Ver todos los proyectos <svg class="arrow"><use href="#arrow"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 4. DÍA / NOCHE ================= -->
-<!-- 4a. Timelapse de la fachada controlado por scroll (frames/dianoche; sustituto: fachada día -> noche) -->
-<section id="timelapse" aria-label="Fachada de Quinta Mil Lunas del día a la noche" data-tono="oscuro" data-header="transparente">
+<!-- ================= Día / Noche: el scroll pasa de la fachada de día a la de noche ================= -->
+<section id="timelapse" aria-label="De día a noche" data-tono="oscuro" data-header="transparente">
   <div class="tl-stage">
     <canvas id="tl-lienzo" aria-hidden="true"></canvas>
     <div class="tl-velo"></div>
-    <div class="tl-ui" aria-hidden="true"><span>Día</span><span class="bar"><i id="tl-bar"></i></span><span>Noche</span></div>
-  </div>
-</section>
-<!-- 4b. Comparador (sin título: 02-textos no lo trae, PENDIENTES.md) -->
-<section class="section jet dn" id="dianoche" aria-label="Día y noche" data-tono="oscuro">
-  <div class="wrap">
-    <div class="dn-head">
-      <div class="sep-iso" style="width:140px" aria-hidden="true"><span class="iso-mask"></span></div>
-      <div class="dn-tabs" role="tablist" aria-label="Escena">
-        <button role="tab" id="dn-t1" aria-controls="dn-panel" aria-selected="true" tabindex="0" data-scene="fachada-frontal" data-alt-dia="Render de Quinta Mil Lunas: fachada frontal de día" data-alt-noche="Render de Quinta Mil Lunas: fachada frontal de noche, con la iluminación encendida">Fachada</button>
-        <button role="tab" id="dn-t2" aria-controls="dn-panel" aria-selected="false" tabindex="-1" data-scene="piscina-01" data-alt-dia="Render de Quinta Mil Lunas: piscina y casa de piscina de día" data-alt-noche="Render de Quinta Mil Lunas: piscina y casa de piscina de noche">Piscina</button>
-        <button role="tab" id="dn-t3" aria-controls="dn-panel" aria-selected="false" tabindex="-1" data-scene="sala-01" data-alt-dia="Render de Quinta Mil Lunas: sala de doble altura de día" data-alt-noche="Render de Quinta Mil Lunas: sala de doble altura de noche">Sala</button>
-        <button role="tab" id="dn-t4" aria-controls="dn-panel" aria-selected="false" tabindex="-1" data-scene="estacionamiento-01" data-alt-dia="Render de Quinta Mil Lunas: acceso al estacionamiento de día" data-alt-noche="Render de Quinta Mil Lunas: acceso al estacionamiento de noche">Estacionamiento</button>
-        <button role="tab" id="dn-t5" aria-controls="dn-panel" aria-selected="false" tabindex="-1" data-scene="fachada-lateral" data-alt-dia="Render de Quinta Mil Lunas: fachada lateral y jardín de acceso de día" data-alt-noche="Render de Quinta Mil Lunas: fachada lateral y jardín de acceso de noche">Lateral</button>
-      </div>
-    </div>
-    <div class="comparador" data-comparador role="tabpanel" id="dn-panel" aria-labelledby="dn-t1">
-      <img class="img a" id="dnDia" src="../assets/_web/dia-noche/fachada-frontal-dia.jpg" alt="Render de Quinta Mil Lunas: fachada frontal de día" loading="lazy" decoding="async">
-      <img class="img b" id="dnNoche" src="../assets/_web/dia-noche/fachada-frontal-noche.jpg" alt="Render de Quinta Mil Lunas: fachada frontal de noche, con la iluminación encendida" loading="lazy" decoding="async">
-      <span class="tag t-a">Día</span><span class="tag t-b">Noche</span>
-      <span class="linea"></span>
-      <span class="tirador" aria-hidden="true"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 1L1 6l4 5M17 1l4 5-4 5"/></svg></span>
-      <input type="range" min="0" max="100" value="50" aria-label="Deslizar entre día y noche">
+    <div class="tl-ui">
+      <span>Día</span>
+      <span class="bar"><i id="tl-bar"></i></span>
+      <span>Noche</span>
     </div>
   </div>
 </section>
@@ -274,7 +251,7 @@
   <div class="wrap">
     <div class="proceso-head">
       <p class="eyebrow">Cómo trabajamos</p>
-      <h2 class="title t-h1">Del plano<br>a la llave.</h2>
+      <h2 class="title t-h1">Del plano a la llave.</h2>
     </div>
     <ol class="pasos">
       <li class="paso"><span class="linea-prog"></span><span class="num">01</span>
@@ -310,7 +287,7 @@
   <div class="wrap">
     <div class="top">
       <div class="brand">
-        <a href="index.html" class="logo" aria-label="TRAZZO Construcciones, inicio"><img src="../assets/marca/logos/trazzo-apilado-blanco-calido.png" alt="TRAZZO Construcciones" width="101" height="64"></a>
+        <a href="index.html" class="logo" aria-label="TRAZZO Construcciones, inicio"><img src="../assets/marca/logos/trazzo-apilado-sin-fondo.png" alt="TRAZZO Construcciones" width="290" height="152"></a>
         <p>Arquitectura de precisión</p>
       </div>
       <!-- Títulos de columna (Estudio, Contacto, Síguenos) sin aprobar en 02-textos (PENDIENTES.md) -->

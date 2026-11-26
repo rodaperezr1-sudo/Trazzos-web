@@ -170,10 +170,7 @@
   prep([...bPaths, ...$$('#cotas path'), ...wLineas, ...oLineas, ...$$('.iso-rev'), ...$$('.e-line'), $('.m2-line')]);
   gsap.set(wGuias, { opacity: 0 });
   gsap.set(['.c-txt', '.c-dot', '.w-dot', '.w-label', '.o-dot'], { opacity: 0 });
-  gsap.set('.r-v', { scaleY: 0, transformOrigin: '50% 0%' });
-  gsap.set('.r-h', { scaleX: 0, transformOrigin: '0% 50%' });
   gsap.set('.r-cruz', { opacity: 0 });
-  const rv = $$('.r-v').sort((a, b) => Math.abs(+a.getAttribute('d').match(/M(\d+)/)[1] - 600) - Math.abs(+b.getAttribute('d').match(/M(\d+)/)[1] - 600));
 
   /* Contador m2: 1.352 m² PENDIENTE DE CONFIRMAR (docs/PENDIENTES.md). Se muestra sin rótulo.
      El número sube una sola vez y se queda en 1.352 mientras el bloque está visible.
@@ -206,20 +203,23 @@
   const etIn = (n, at) => { tl.to(et(n), { opacity: 1, duration: 1.5 }, at); tl.to($('.e-line', et(n)), { strokeDashoffset: 0, duration: 2, ease: 'trazzo' }, at); };
   const etOut = (n, at) => tl.to(et(n), { opacity: 0, duration: 1.5 }, at);
 
-  // --- 01 (0-25): al cargar solo está la doble Z. El título entra con el segundo gesto de scroll.
+  // --- 00: la doble Z queda al centro. Con el texto sube. Las flechas se van al empezar el texto.
   gsap.set('#logo-portada', { xPercent: -50, yPercent: -50 });
-  tl.fromTo('#logo-portada', { yPercent: -50 }, { yPercent: -62, duration: 18, ease: 'power1.inOut' }, 0);
+  tl.to('#scroll-hint', { autoAlpha: 0, duration: 2.2, ease: 'power1.in' }, 5.5);
+  const portadaMovil = matchMedia('(max-width:860px)').matches;
+  tl.to('#logo-portada', {
+    yPercent: portadaMovil ? -78 : -74,
+    scale: portadaMovil ? 1 : 0.64,
+    duration: 5, ease: 'power1.inOut'
+  }, 7);
   textoIn(1, 7);
-  tl.fromTo('.cap-cta.c1', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 3, ease: 'trazzo' }, 8);
   textoOut(1, 21.5);
-  tl.to('.cap-cta.c1', { autoAlpha: 0, duration: 2 }, 20);
   tl.to('#logo-portada', { opacity: 0, duration: 4, ease: 'power1.in' }, 20);
 
   // --- 02 RENDER (25-50): la transición del lienzo y las líneas técnicas. Sin el boceto de encima.
   tl.to('#papel-blanco', { opacity: 1, duration: 4, ease: 'power1.inOut' }, 20.5);
   tl.to('#lienzo', { opacity: 1, duration: 3 }, 22.5);
   tl.to('#velo', { opacity: .66, duration: 7 }, 24);
-  tl.to('#reticula-box', { opacity: .55, duration: 4 }, 24);
   etOut(1, 24); etIn(2, 25);
   tl.to(wGuias, { opacity: 1, duration: 2, stagger: .4 }, 30);
   tl.to(wLineas, { strokeDashoffset: 0, duration: 2.2, stagger: (8 - 2.2) / (wLineas.length - 1), ease: 'power1.inOut' }, 31);
@@ -251,7 +251,6 @@
   // --- 04 ENTREGA (75-100): hero 0-6,5 s (empalma con el final de V4). Se quita el velo.
   etOut(3, 74); etIn(4, 75);
   tl.to('#velo', { opacity: 0, duration: 5 }, 75);
-  tl.to('#reticula-box', { opacity: 0, duration: 4 }, 75);
   tl.to(['#lateral', '#pie'], { opacity: 1, duration: 4 }, 76);   // I-4: refuerzo de lectura bajo el título 04
   tl.fromTo('#sombra', { opacity: 0 }, { opacity: .38, duration: 2 }, 77);
   tl.to('#sombra', { opacity: 0, duration: 6, ease: 'power1.inOut' }, 79);
@@ -262,7 +261,6 @@
   tl.to('.mz-2', { strokeDashoffset: 0, duration: 1.8 }, 91.2);
   tl.to('.mz-3', { strokeDashoffset: 0, duration: 1.2, ease: 'power1.out' }, 92.8);
   textoIn(4, 91);
-  tl.to('.cap-cta.c4', { autoAlpha: 1, duration: 3, ease: 'trazzo' }, 94);
   tl.to({}, { duration: 1 }, 99);
 
   /* ---------- 5. (La mano G5 se quitó el 18/11/2026 a pedido de Rogger) ---------- */
@@ -270,9 +268,10 @@
   /* ---------- 6. Indicadores fijos ---------- */
   const pCap = $('#p-cap'), pBar = $('#p-bar'), desl = $('#desliza'), lienzoEl = $('#lienzo');
   function indicadores(p) {
-    pCap.textContent = '0' + Math.min(4, Math.floor(p * 4 + .0001) + 1);
+    const n = p < .06 ? 0 : Math.min(4, Math.floor(p * 4 + .0001) + 1);
+    pCap.textContent = String(n).padStart(2, '0');
     pBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
-    desl.style.opacity = p < .03 ? 1 : Math.max(0, 1 - (p - .03) * 30);
+    if (desl) desl.style.opacity = 0;
   }
   function alActualizar() {
     const p = tl.progress() * 100;
@@ -301,19 +300,15 @@
   indicadores(0);
   alActualizar();
 
-  /* Intro al cargar */
+  /* Intro al cargar: la piedra y la doble Z se quedan hasta que termina el barrido. */
   TZ.recorrido = { tl, S: () => S, reales: () => usandoReales };
-  await Promise.race([listaInicial, new Promise(r => setTimeout(r, 3000))]);
+  if (!REDUCE) lenis.stop();
+  await Promise.all([
+    Promise.race([listaInicial, new Promise(r => setTimeout(r, 3000))]),
+    new Promise(r => setTimeout(r, REDUCE ? 0 : 2400))
+  ]);
+  if (!REDUCE) lenis.start();
   TZ.quitarLoader && TZ.quitarLoader();
-  // La retícula se dibuja sola. La doble Z ya está visible: el título espera al scroll.
-  if (REDUCE) {
-    gsap.set(rv, { scaleY: 1 }); gsap.set('.r-h', { scaleX: 1 }); gsap.set('.r-cruz', { opacity: 1 });
-  } else {
-    const intro = gsap.timeline({ delay: .15 });
-    intro.to(rv, { scaleY: 1, duration: 1.1, stagger: .06, ease: 'trazzo' }, 0);
-    intro.to('.r-h', { scaleX: 1, duration: 1.1, stagger: .08, ease: 'trazzo' }, .3);
-    intro.to('.r-cruz', { opacity: 1, duration: .5, stagger: .05 }, 1.2);
-  }
 
   /* ---------- 8. Si aún no hay manifest, se revisa cada 20 s ---------- */
   if (!usandoReales) {

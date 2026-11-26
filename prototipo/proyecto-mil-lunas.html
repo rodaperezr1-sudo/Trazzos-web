@@ -30,7 +30,7 @@
       "@id": "https://PENDIENTE-DOMINIO/#empresa",
       "name": "TRAZZO Construcciones",
       "slogan": "Arquitectura de precisión",
-      "description": "Empresa familiar de remodelación y construcción residencial de alta gama en Caracas. Un solo equipo, de la planeación a la entrega.",
+      "description": "Empresa de construcción residencial de alta gama en Caracas. Un solo equipo, de la planeación a la entrega.",
       "url": "https://PENDIENTE-DOMINIO/",
       "logo": "https://PENDIENTE-DOMINIO/wp-content/themes/tema-trazzo/assets/marca/logos/trazzo-apilado-verde-profundo.png",
       "image": "https://PENDIENTE-DOMINIO/wp-content/themes/tema-trazzo/assets/_web/dia-noche/fachada-frontal-noche.jpg",
@@ -63,8 +63,8 @@
         "name": "Caracas"
       },
       "knowsAbout": [
-        "Remodelación residencial",
-        "Remodelación integral",
+        "Construcción residencial",
+        "Construcción integral",
         "Construcción residencial"
       ],
       "geo": "PENDIENTE: coordenadas de Av. Principal Prados del Este, Parcela 16-A (latitud y longitud). Quitar esta línea si no se confirman.",
@@ -216,9 +216,16 @@
   <section class="section jet" data-tono="oscuro">
     <div class="wrap">
       <div class="l-sec-head"><p class="eyebrow">02</p><h2 class="title t-h2">Día / Noche</h2></div>
-      <div class="comparador" data-comparador>
-        <img class="img a" src="../assets/_web/dia-noche/piscina-01-dia.jpg" alt="Render de Quinta Mil Lunas: piscina y casa de piscina de día" loading="lazy" decoding="async">
-        <img class="img b" src="../assets/_web/dia-noche/piscina-01-noche.jpg" alt="Render de Quinta Mil Lunas: piscina y casa de piscina de noche" loading="lazy" decoding="async">
+      <div class="dn-tabs" role="tablist" aria-label="Escena">
+        <button role="tab" id="dn-t1" aria-controls="dn-panel" aria-selected="true" tabindex="0" data-scene="fachada-frontal" data-alt-dia="Render de Quinta Mil Lunas: fachada frontal de día" data-alt-noche="Render de Quinta Mil Lunas: fachada frontal de noche, con la iluminación encendida">Fachada</button>
+        <button role="tab" id="dn-t2" aria-controls="dn-panel" aria-selected="false" tabindex="-1" data-scene="piscina-01" data-alt-dia="Render de Quinta Mil Lunas: piscina y casa de piscina de día" data-alt-noche="Render de Quinta Mil Lunas: piscina y casa de piscina de noche">Piscina</button>
+        <button role="tab" id="dn-t3" aria-controls="dn-panel" aria-selected="false" tabindex="-1" data-scene="sala-01" data-alt-dia="Render de Quinta Mil Lunas: sala de doble altura de día" data-alt-noche="Render de Quinta Mil Lunas: sala de doble altura de noche">Sala</button>
+        <button role="tab" id="dn-t4" aria-controls="dn-panel" aria-selected="false" tabindex="-1" data-scene="estacionamiento-01" data-alt-dia="Render de Quinta Mil Lunas: acceso al estacionamiento de día" data-alt-noche="Render de Quinta Mil Lunas: acceso al estacionamiento de noche">Estacionamiento</button>
+        <button role="tab" id="dn-t5" aria-controls="dn-panel" aria-selected="false" tabindex="-1" data-scene="fachada-lateral" data-alt-dia="Render de Quinta Mil Lunas: fachada lateral y jardín de acceso de día" data-alt-noche="Render de Quinta Mil Lunas: fachada lateral y jardín de acceso de noche">Lateral</button>
+      </div>
+      <div class="comparador" data-comparador role="tabpanel" id="dn-panel" aria-labelledby="dn-t1">
+        <img class="img a" id="dnDia" src="../assets/_web/dia-noche/fachada-frontal-dia.jpg" alt="Render de Quinta Mil Lunas: fachada frontal de día" loading="lazy" decoding="async">
+        <img class="img b" id="dnNoche" src="../assets/_web/dia-noche/fachada-frontal-noche.jpg" alt="Render de Quinta Mil Lunas: fachada frontal de noche, con la iluminación encendida" loading="lazy" decoding="async">
         <span class="tag t-a">Día</span><span class="tag t-b">Noche</span>
         <span class="linea"></span>
         <span class="tirador" aria-hidden="true"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 1L1 6l4 5M17 1l4 5-4 5"/></svg></span>
@@ -297,7 +304,7 @@
   <div class="wrap">
     <div class="top">
       <div class="brand">
-        <a href="index.html" class="logo" aria-label="TRAZZO Construcciones, inicio"><img src="../assets/marca/logos/trazzo-apilado-blanco-calido.png" alt="TRAZZO Construcciones" width="101" height="64"></a>
+        <a href="index.html" class="logo" aria-label="TRAZZO Construcciones, inicio"><img src="../assets/marca/logos/trazzo-apilado-sin-fondo.png" alt="TRAZZO Construcciones" width="290" height="152"></a>
         <p>Arquitectura de precisión</p>
       </div>
       <!-- Títulos de columna (Estudio, Contacto, Síguenos) sin aprobar en 02-textos (PENDIENTES.md) -->
