@@ -164,18 +164,6 @@
       scrollTrigger: { trigger: '.pasos', start: 'top 75%', once: true } });
   } else pasos.forEach(p => p.style.transform = 'scaleX(1)');
 
-  /* ---------- Proyectos: filtros Todos / Entregados / En obra ---------- */
-  const filtros = $$('.filtros button');
-  filtros.forEach(b => b.addEventListener('click', () => {
-    filtros.forEach(x => x.setAttribute('aria-pressed', x === b));
-    const f = b.dataset.filtro;
-    let visibles = 0;
-    $$('.grid-proy .tarjeta').forEach(t => { const ok = f === 'todos' || t.dataset.estado === f; t.hidden = !ok; if (ok) visibles++; });
-    const res = $('#proy-res'); if (res) res.textContent = visibles + (visibles === 1 ? ' proyecto' : ' proyectos');
-    // M-15: "Nuevos proyectos muy pronto." solo cuando el filtro queda vacío (02-textos: "mientras está vacío")
-    const vacio = $('#proy-vacio'); if (vacio) vacio.hidden = visibles > 0;
-  }));
-
   /* ---------- Contacto: solo front, sin envío real ---------- */
   const form = $('#form-contacto');
   /* I-7: cada campo obligatorio tiene su mensaje (<p class="error" id="e-…">, enlazado con aria-describedby).

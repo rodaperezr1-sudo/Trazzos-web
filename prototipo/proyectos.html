@@ -129,45 +129,58 @@
   <section class="dark" data-tono="oscuro">
     <div class="wrap pag-head">
       <h1 class="title t-display">Proyectos</h1>
-      <p class="sub">Cada casa, una transformación.</p>
+      <p class="sub">Cada proyecto, con intención.</p>
     </div>
   </section>
 
   <section class="section sand" data-tono="claro" style="padding-top:clamp(3rem,6vw,5rem)">
     <div class="wrap">
-      <div class="filtros" role="group" aria-label="Filtrar proyectos">
-        <button type="button" data-filtro="todos" aria-pressed="true">Todos</button>
-        <button type="button" data-filtro="entregado" aria-pressed="false">Entregados</button>
-        <button type="button" data-filtro="en-obra" aria-pressed="false">En obra</button>
-      </div>
-      <p class="sr-only" id="proy-res" aria-live="polite"></p>
-
       <div class="grid-proy">
-        <!-- Tarjeta de proyecto (template-parts/tarjeta-proyecto.php): Nombre · Zona · Año · Estado -> Ver proyecto -->
-        <a class="tarjeta" href="proyecto-mil-lunas.html" data-estado="en-obra">
+        <!-- Mismos proyectos que la galería del inicio, con nombre. «Quinta» no se escribe. Sin filtros ni estado. -->
+        <a class="tarjeta" href="proyecto-mil-lunas.html">
           <div class="foto">
-            <img src="../assets/_web/dia-noche/fachada-frontal-dia.jpg" alt="Render de Quinta Mil Lunas: fachada frontal de día" loading="lazy" decoding="async">
-            <span class="estado">En obra</span>
+            <img src="../assets/_web/galeria/portadas/01-mil-lunas.jpg" alt="Fachada de Mil Lunas" loading="lazy" decoding="async">
           </div>
-          <h2>Quinta Mil Lunas</h2>
-          <p class="meta">Prados del Este · 2027 · En obra</p>
-          <span class="ver">Ver proyecto <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
+          <h2>Mil Lunas</h2>
+          <p class="meta">Prados del Este · 2027</p>
+          <span class="ver">Ver <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
         </a>
-        <!-- Quinta María Auxiliadora: SIN fotos ni zona (PENDIENTES.md). No se usan renders de Mil Lunas aquí. -->
-        <a class="tarjeta" href="proyecto-maria-auxiliadora.html" data-estado="entregado">
+        <article class="tarjeta">
           <div class="foto">
-            <div class="foto-pendiente"><span class="iso-mask" aria-hidden="true"></span><span>Material pendiente</span></div>
-            <span class="estado">Entregado</span>
+            <img src="../assets/_web/galeria/portadas/02-san-antonio.jpg?v=7" alt="Casa en San Antonio al anochecer, con piscina y sombrilla" loading="lazy" decoding="async">
           </div>
-          <h2>Quinta María Auxiliadora</h2>
-          <p class="meta">2025 · Entregado</p>
-          <span class="ver">Ver proyecto <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
-        </a>
+          <h2>San Antonio</h2>
+          <span class="ver">Ver <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </article>
+        <article class="tarjeta">
+          <div class="foto">
+            <img src="../assets/_web/galeria/portadas/03-tereke.jpg?v=8" alt="Casa de dos plantas al anochecer, con planta baja abierta y piscina" loading="lazy" decoding="async">
+          </div>
+          <h2>Tereke</h2>
+          <span class="ver">Ver <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </article>
+        <article class="tarjeta">
+          <div class="foto">
+            <img src="../assets/_web/galeria/portadas/04-oficina-morocho.jpg?v=7" alt="Oficinas, área de trabajo con muro azul y sala de vidrio" loading="lazy" decoding="async">
+          </div>
+          <h2>Oficinas</h2>
+          <span class="ver">Ver <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </article>
+        <article class="tarjeta">
+          <div class="foto">
+            <img src="../assets/_web/galeria/portadas/05-casa-tony.jpg?v=7" alt="Piscina y jardín entre muros grises" loading="lazy" decoding="async">
+          </div>
+          <h2>Casa Tony</h2>
+          <span class="ver">Ver <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </article>
+        <article class="tarjeta">
+          <div class="foto">
+            <img src="../assets/_web/galeria/portadas/06-aurora.jpg?v=8" alt="Casa Aurora, muro curvo de piedra y volumen oscuro" loading="lazy" decoding="async">
+          </div>
+          <h2>Aurora</h2>
+          <span class="ver">Ver <svg class="arrow" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </article>
 
-        <div class="pronto" id="proy-vacio" hidden>
-          <span class="iso-mask" aria-hidden="true"></span>
-          <p>Nuevos proyectos muy pronto.</p>
-        </div>
       </div>
     </div>
   </section>

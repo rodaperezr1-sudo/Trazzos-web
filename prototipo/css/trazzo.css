@@ -67,8 +67,11 @@ button{background:none;border:0;cursor:pointer}
 .btn-dark:hover{background:var(--oliva)}
 .btn-ghost-dark{border:1px solid var(--jet-45);color:var(--jet)}
 .btn-ghost-dark:hover{border-color:var(--jet)}
-.btn-wa{background:var(--oliva);color:var(--calido)}
-.btn-wa:hover{background:var(--calido);color:var(--jet)}
+.btn-wa{width:58px;height:58px;padding:0;gap:0;justify-content:center;border-radius:50%;background:transparent;color:var(--calido);
+  border:1.5px solid var(--calido);box-shadow:0 0 0 5px transparent,0 0 0 6.5px rgba(255,248,239,.45)}
+.btn-wa:hover{background:transparent;color:var(--calido);border-color:var(--calido);box-shadow:0 0 0 5px transparent,0 0 0 6.5px var(--calido)}
+.warm .btn-wa,.sand .btn-wa{color:var(--jet);border-color:var(--jet);box-shadow:0 0 0 5px transparent,0 0 0 6.5px rgba(29,28,27,.4)}
+.warm .btn-wa:hover,.sand .btn-wa:hover{background:transparent;color:var(--jet);border-color:var(--jet);box-shadow:0 0 0 5px transparent,0 0 0 6.5px var(--jet)}
 .btn-sm{height:40px;padding:0 1.1rem;font-size:.75rem}
 
 /* ---------- Isologo como máscara (toma currentColor) ---------- */
@@ -146,7 +149,7 @@ button{background:none;border:0;cursor:pointer}
 /* =========================================================
    1. Recorrido "Del trazo a la obra" (Home)
    ========================================================= */
-#recorrido{position:relative;z-index:1;height:450vh}
+#recorrido{position:relative;z-index:1;height:576vh}
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--jet);isolation:isolate}
 .layer{position:absolute;inset:0}
 /* Portada: la piedra con poca luz. El relleno de la doble Z es la misma textura, más clara. */
@@ -161,6 +164,7 @@ button{background:none;border:0;cursor:pointer}
   background:radial-gradient(38% 30% at 30% 44%,var(--calido),transparent 70%),radial-gradient(30% 26% at 62% 50%,var(--calido),transparent 70%)}
 #velo{background:var(--oliva);opacity:0}
 #lectura{background:linear-gradient(180deg,rgba(29,28,27,.45) 0%,rgba(29,28,27,0) 22%,rgba(29,28,27,0) 52%,rgba(29,28,27,.8) 100%)}
+#sombra-titulo{opacity:0;background:linear-gradient(180deg,transparent 46%,rgba(29,28,27,.22) 70%,rgba(29,28,27,.58) 100%)}
 #lateral{background:linear-gradient(90deg,rgba(29,28,27,.65),rgba(29,28,27,.45) 45%,rgba(29,28,27,0) 72%);opacity:0}
 /* I-4: refuerzo de lectura del capítulo 04 (solo negro jet con opacidad), bajo el título y el isologo */
 #pie{opacity:0;background:radial-gradient(70% 55% at 18% 82%,rgba(29,28,27,.8) 0%,rgba(29,28,27,.58) 50%,rgba(29,28,27,0) 100%),linear-gradient(0deg,rgba(29,28,27,.55) 0%,rgba(29,28,27,0) 55%)}
@@ -248,9 +252,15 @@ button{background:none;border:0;cursor:pointer}
 .acordeon button.card{border:0;padding:0;font:inherit;text-align:left;color:inherit;cursor:pointer}
 .acordeon .card:nth-child(2n){background-color:var(--profundo)}
 .acordeon .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (min-width:861px){
+  .acordeon{container-type:inline-size}
+  .acordeon .card img{inset:auto;top:0;left:50%;width:auto;height:100%;min-width:50cqw;max-width:none;transform:translateX(-50%)}
+  .acordeon .card .n{opacity:0;transition:opacity .4s}
+  .acordeon .card.is-open .n{opacity:1}
+}
 .acordeon .card.is-open{flex-grow:5.2}
 .acordeon .card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,28,27,.4) 0%,rgba(29,28,27,0) 18%,rgba(29,28,27,0) 50%,rgba(29,28,27,.8) 100%)}
-.acordeon .card .n{position:absolute;top:1.2rem;left:1.2rem;z-index:2;font-size:12px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+.acordeon .card .n{position:absolute;left:1.2rem;bottom:1.2rem;z-index:2;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:#fff}
 .acordeon .card .v-lbl{position:absolute;left:50%;bottom:1.6rem;z-index:2;writing-mode:vertical-rl;transform:translateX(-50%) rotate(180deg);
   font-size:12px;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap;transition:opacity .4s}
 .acordeon .card .info{position:absolute;left:1.6rem;right:1.6rem;bottom:1.6rem;z-index:2;display:flex;justify-content:space-between;align-items:end;gap:1rem;
@@ -363,6 +373,8 @@ button{background:none;border:0;cursor:pointer}
 .tarjeta h2{margin:1.4rem 0 .5rem;font-size:var(--fs-h3);letter-spacing:.14em;text-transform:uppercase;font-weight:500}
 .tarjeta .meta{margin:0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--jet-70)}
 .tarjeta .ver{display:inline-flex;gap:.6rem;align-items:center;margin-top:1.1rem;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;padding-bottom:.3rem;border-bottom:1px solid currentColor}
+.grid-proy .tarjeta .ver{opacity:0;visibility:hidden;max-height:0;margin-top:0;overflow:hidden;transition:opacity .35s var(--ease),visibility .35s,max-height .35s var(--ease),margin-top .35s var(--ease)}
+.grid-proy .tarjeta:hover .ver,.grid-proy .tarjeta:focus-within .ver{opacity:1;visibility:visible;max-height:2.4rem;margin-top:1.1rem}
 .tarjeta .ver .arrow{width:18px;height:10px;transition:transform .4s var(--ease)}
 .tarjeta:hover .ver .arrow{transform:translateX(4px)}
 .foto-pendiente{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;background:var(--profundo);color:var(--calido-70);text-align:center;padding:1.5rem}
@@ -526,6 +538,7 @@ fieldset.campo{border:0;margin:0;padding:0}
   .paso:nth-child(n+3){margin-top:0}
   .paso .linea-prog{display:none}
   .cierre .btn{width:100%;justify-content:center}
+  .cierre .btn-wa,.datos .btn-wa,.btn-wa{width:58px;height:58px;padding:0}
   .footer .top{grid-template-columns:1fr}
   .footer .bottom{flex-direction:column}
   .grid-proy{grid-template-columns:1fr}
@@ -538,7 +551,8 @@ fieldset.campo{border:0;margin:0;padding:0}
   .siguiente{grid-template-columns:1fr}
   .form{grid-template-columns:1fr}
   .form .enviar{flex-direction:column;align-items:stretch}
-  .form .enviar .btn,.datos .btn-wa{justify-content:space-between;width:100%}
+  .form .enviar .btn{justify-content:space-between;width:100%}
+  .datos .btn-wa,.acciones .btn-wa{width:58px;height:58px;padding:0}
   .aviso{flex-direction:column;align-items:flex-start}
   .pronto{flex-direction:column}
 }
