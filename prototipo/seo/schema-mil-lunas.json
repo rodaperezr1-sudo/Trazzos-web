@@ -6,7 +6,7 @@
       "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-mil-lunas/#pagina",
       "url": "https://PENDIENTE-DOMINIO/proyectos/quinta-mil-lunas/",
       "name": "Quinta Mil Lunas, Prados del Este | TRAZZO Construcciones",
-      "description": "Residencia contemporánea en Prados del Este, Caracas. Proyecto de los arquitectos Javier Pereira y Josse Salazar, con entrega prevista para 2027.",
+      "description": "Residencia contemporánea en Prados del Este, Caracas. Proyecto de los arquitectos Javier Pereira y Josse Salazar, con entrega prevista para 2027",
       "inLanguage": "es-VE",
       "isPartOf": { "@id": "https://PENDIENTE-DOMINIO/#sitio" },
       "about": { "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-mil-lunas/#casa" },
@@ -17,7 +17,7 @@
       "@type": "House",
       "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-mil-lunas/#casa",
       "name": "Quinta Mil Lunas",
-      "description": "Residencia contemporánea con entrega prevista para 2027. Las imágenes son renders del proyecto.",
+      "description": "Residencia contemporánea con entrega prevista para 2027. Las imágenes son renders del proyecto",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Prados del Este, Caracas",

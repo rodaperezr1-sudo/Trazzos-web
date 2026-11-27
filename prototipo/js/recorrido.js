@@ -112,10 +112,12 @@
   }
 
   /* Tramos del canvas en % de la línea de tiempo */
+  /* Los tramos van en % del recorrido. El boceto se queda en el primer fotograma
+     hasta el 43 %: es el scroll de «Arquitectura de precisión». Después, los mismos tramos de antes. */
   const T = {
-    v1: [23, 38],           // boceto -> render (el render queda quieto para el wireframe)
-    corte: [48.5, 50.5],    // V1 (render) -> V2 (terreno viejo): fundido + velo más denso
-    v2: [50.5, 58.5], v3: [58.5, 66.5], v4: [66.5, 75], hero: [75, 97]
+    v1: [43.4, 54.4],
+    corte: [62.1, 63.6],
+    v2: [63.6, 69.5], v3: [69.5, 75.4], v4: [75.4, 81.6], hero: [81.6, 97.8]
   };
   const u = (p, r) => (p - r[0]) / (r[1] - r[0]);
   let ultimoP = 0;
@@ -212,63 +214,66 @@
     scale: portadaMovil ? 1 : 0.64,
     duration: 5, ease: 'power1.inOut'
   }, 7);
-  textoIn(1, 7);
-  textoOut(1, 21.5);
   tl.to('#logo-portada', { opacity: 0, duration: 4, ease: 'power1.in' }, 20);
 
-  // --- 02 RENDER (25-50): la transición del lienzo y las líneas técnicas. Sin el boceto de encima.
+  // El boceto entra y se queda quieto un scroll entero, con el título encima.
   tl.to('#papel-blanco', { opacity: 1, duration: 4, ease: 'power1.inOut' }, 20.5);
   tl.to('#lienzo', { opacity: 1, duration: 3 }, 22.5);
-  tl.to('#velo', { opacity: .66, duration: 7 }, 24);
-  etOut(1, 24); etIn(2, 25);
-  tl.to(wGuias, { opacity: 1, duration: 2, stagger: .4 }, 30);
-  tl.to(wLineas, { strokeDashoffset: 0, duration: 2.2, stagger: (8 - 2.2) / (wLineas.length - 1), ease: 'power1.inOut' }, 31);
-  tl.to('.w-dot', { opacity: 1, duration: .8, stagger: .2 }, 37.5);
-  tl.to('.w-label', { opacity: 1, duration: 1.5 }, 38.5);
-  textoIn(2, 29.5);
-  tl.to('.w-label, .w-dot', { opacity: 0, duration: 2 }, 42);
-  tl.to(wLineas, { strokeDashoffset: -1, duration: 2.5, stagger: .25, ease: 'power1.in' }, 42.5);
-  tl.to(wGuias, { opacity: 0, duration: 3 }, 43);
-  textoOut(2, 46);
+  textoIn(1, 26);
+  tl.to('#sombra-titulo', { opacity: 1, duration: 4, ease: 'trazzo' }, 26);
+  textoOut(1, 58);
+  tl.to('#sombra-titulo', { opacity: 0, duration: 3, ease: 'power1.in' }, 58);
 
-  // --- Corte V1 -> V2 (48,5-50,5): el velo se cierra un momento y el canvas funde
-  tl.to('#velo', { opacity: .9, duration: 1.8, ease: 'power1.in' }, 47);
-  tl.to('#velo', { opacity: .66, duration: 2.2, ease: 'power1.out' }, 50.2);
+  // --- 02 RENDER: lo que iba en 24–99 se corre 36 unidades para dejar ese scroll. ---
+  const SFT = 36;
+  tl.to('#velo', { opacity: .66, duration: 7 }, 24 + SFT);
+  etOut(1, 24 + SFT); etIn(2, 25 + SFT);
+  tl.to(wGuias, { opacity: 1, duration: 2, stagger: .4 }, 30 + SFT);
+  tl.to(wLineas, { strokeDashoffset: 0, duration: 2.2, stagger: (8 - 2.2) / (wLineas.length - 1), ease: 'power1.inOut' }, 31 + SFT);
+  tl.to('.w-dot', { opacity: 1, duration: .8, stagger: .2 }, 37.5 + SFT);
+  tl.to('.w-label', { opacity: 1, duration: 1.5 }, 38.5 + SFT);
+  textoIn(2, 29.5 + SFT);
+  tl.to('.w-label, .w-dot', { opacity: 0, duration: 2 }, 42 + SFT);
+  tl.to(wLineas, { strokeDashoffset: -1, duration: 2.5, stagger: .25, ease: 'power1.in' }, 42.5 + SFT);
+  tl.to(wGuias, { opacity: 0, duration: 3 }, 43 + SFT);
+  textoOut(2, 46 + SFT);
 
-  // --- 03 OBRA (50-75): V2 -> V3 -> V4
-  etOut(2, 49); etIn(3, 50);
-  tl.to(oLineas, { strokeDashoffset: 0, duration: 4, stagger: 1.2, ease: 'power1.inOut' }, 51);
-  tl.to('.o-dot', { opacity: 1, duration: .6, stagger: .2 }, 56.5);
-  textoIn(3, 53);
-  tl.to('#m2-box', { opacity: 1, duration: 1.2 }, 56);
-  tl.to('.m2-line', { strokeDashoffset: 0, duration: 4, ease: 'trazzo' }, 56.4);
-  tl.to('#o-clip-rect', { attr: { y: 250 }, duration: 12, ease: 'power1.inOut' }, 58);
-  tl.to('#velo', { opacity: .5, duration: 12 }, 58);
-  tl.to(['#o-contorno', '#o-relleno', '#o-anclajes'], { opacity: 0, duration: 3 }, 71);
-  tl.to('#m2-box', { opacity: 0, duration: 3 }, 71.5);
-  textoOut(3, 72);
+  tl.to('#velo', { opacity: .9, duration: 1.8, ease: 'power1.in' }, 47 + SFT);
+  tl.to('#velo', { opacity: .66, duration: 2.2, ease: 'power1.out' }, 50.2 + SFT);
 
-  // --- 04 ENTREGA (75-100): hero 0-6,5 s (empalma con el final de V4). Se quita el velo.
-  etOut(3, 74); etIn(4, 75);
-  tl.to('#velo', { opacity: 0, duration: 5 }, 75);
-  tl.to(['#lateral', '#pie'], { opacity: 1, duration: 4 }, 76);   // I-4: refuerzo de lectura bajo el título 04
-  tl.fromTo('#sombra', { opacity: 0 }, { opacity: .38, duration: 2 }, 77);
-  tl.to('#sombra', { opacity: 0, duration: 6, ease: 'power1.inOut' }, 79);
-  tl.to('#luz', { opacity: .55, duration: 6, ease: 'power1.inOut' }, 79);
+  etOut(2, 49 + SFT); etIn(3, 50 + SFT);
+  tl.to(oLineas, { strokeDashoffset: 0, duration: 4, stagger: 1.2, ease: 'power1.inOut' }, 51 + SFT);
+  tl.to('.o-dot', { opacity: 1, duration: .6, stagger: .2 }, 56.5 + SFT);
+  textoIn(3, 53 + SFT);
+  tl.to('#m2-box', { opacity: 1, duration: 1.2 }, 56 + SFT);
+  tl.to('.m2-line', { strokeDashoffset: 0, duration: 4, ease: 'trazzo' }, 56.4 + SFT);
+  tl.to('#o-clip-rect', { attr: { y: 250 }, duration: 12, ease: 'power1.inOut' }, 58 + SFT);
+  tl.to('#velo', { opacity: .5, duration: 12 }, 58 + SFT);
+  tl.to(['#o-contorno', '#o-relleno', '#o-anclajes'], { opacity: 0, duration: 3 }, 71 + SFT);
+  tl.to('#m2-box', { opacity: 0, duration: 3 }, 71.5 + SFT);
+  textoOut(3, 72 + SFT);
+
+  etOut(3, 74 + SFT); etIn(4, 75 + SFT);
+  tl.to('#velo', { opacity: 0, duration: 5 }, 75 + SFT);
+  tl.to(['#lateral', '#pie'], { opacity: 1, duration: 4 }, 76 + SFT);
+  tl.fromTo('#sombra', { opacity: 0 }, { opacity: .38, duration: 2 }, 77 + SFT);
+  tl.to('#sombra', { opacity: 0, duration: 6, ease: 'power1.inOut' }, 79 + SFT);
+  tl.to('#luz', { opacity: .55, duration: 6, ease: 'power1.inOut' }, 79 + SFT);
   ['#iz-4', '#iz-3', '#iz-2', '#iz-1', '#de-1', '#de-2', '#de-3', '#de-4'].forEach((id, i) =>
-    tl.to('#m-' + id.slice(1) + ' .iso-rev', { strokeDashoffset: 0, duration: 1.6, ease: 'trazzo' }, 84 + i * .7));
-  tl.to('.mz-1', { strokeDashoffset: 0, duration: 1.2, ease: 'power1.in' }, 90.2);
-  tl.to('.mz-2', { strokeDashoffset: 0, duration: 1.8 }, 91.2);
-  tl.to('.mz-3', { strokeDashoffset: 0, duration: 1.2, ease: 'power1.out' }, 92.8);
-  textoIn(4, 91);
-  tl.to({}, { duration: 1 }, 99);
+    tl.to('#m-' + id.slice(1) + ' .iso-rev', { strokeDashoffset: 0, duration: 1.6, ease: 'trazzo' }, 84 + SFT + i * .7));
+  tl.to('.mz-1', { strokeDashoffset: 0, duration: 1.2, ease: 'power1.in' }, 90.2 + SFT);
+  tl.to('.mz-2', { strokeDashoffset: 0, duration: 1.8 }, 91.2 + SFT);
+  tl.to('.mz-3', { strokeDashoffset: 0, duration: 1.2, ease: 'power1.out' }, 92.8 + SFT);
+  textoIn(4, 91 + SFT);
+  tl.to({}, { duration: 1 }, 99 + SFT);
 
   /* ---------- 5. (La mano G5 se quitó el 18/11/2026 a pedido de Rogger) ---------- */
 
   /* ---------- 6. Indicadores fijos ---------- */
   const pCap = $('#p-cap'), pBar = $('#p-bar'), desl = $('#desliza'), lienzoEl = $('#lienzo');
   function indicadores(p) {
-    const n = p < .06 ? 0 : Math.min(4, Math.floor(p * 4 + .0001) + 1);
+    const t = p * tl.duration();
+    const n = t < 25 ? 0 : t < 62 ? 1 : t < 86 ? 2 : t < 111 ? 3 : 4;
     pCap.textContent = String(n).padStart(2, '0');
     pBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
     if (desl) desl.style.opacity = 0;
@@ -277,9 +282,9 @@
     const p = tl.progress() * 100;
     pintarFondo(p);
     asegurarVentana(p);
-    lienzoEl.classList.toggle('normal', p > 33);   // multiply solo mientras hay papel debajo
-    // Visible entre la entrada (56) y el fundido de salida (71.5). Ahí el número se queda en 1.352.
-    contarM2(p >= 56 && p < 73.5);
+    lienzoEl.classList.toggle('normal', p > 51);   // multiply solo mientras el boceto está sobre el papel
+    // El contador entra en el 03 y se queda en 1.352 hasta que esa escena se va.
+    contarM2(p >= 67.6 && p < 79);
   }
   tl.eventCallback('onUpdate', alActualizar);
 
@@ -292,7 +297,7 @@
   if (!REDUCE) {
     ScrollTrigger.create({ trigger: '#recorrido', start: 'top top', end: 'bottom bottom', scrub: .6, animation: tl, onUpdate: s => indicadores(s.progress) });
   } else {
-    const fin = [.14, .40, .70, 1];
+    const fin = [.12, .32, .55, .92];
     ScrollTrigger.create({ trigger: '#recorrido', start: 'top top', end: 'bottom bottom',
       onUpdate: s => { const c = Math.min(3, Math.floor(s.progress * 4)); tl.progress(fin[c]); indicadores(s.progress); } });
     tl.progress(fin[0]);

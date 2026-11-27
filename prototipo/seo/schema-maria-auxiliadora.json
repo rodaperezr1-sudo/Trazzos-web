@@ -6,7 +6,7 @@
       "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-maria-auxiliadora/#pagina",
       "url": "https://PENDIENTE-DOMINIO/proyectos/quinta-maria-auxiliadora/",
       "name": "Quinta María Auxiliadora | TRAZZO Construcciones",
-      "description": "Construcción entregada en 2025: una casa existente transformada en residencia contemporánea. Un solo equipo, de la planeación a la entrega.",
+      "description": "Construcción entregada en 2025: una casa existente transformada en residencia contemporánea. Un solo equipo, de la planeación a la entrega",
       "inLanguage": "es-VE",
       "isPartOf": { "@id": "https://PENDIENTE-DOMINIO/#sitio" },
       "about": { "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-maria-auxiliadora/#casa" },
@@ -17,7 +17,7 @@
       "@type": "House",
       "@id": "https://PENDIENTE-DOMINIO/proyectos/quinta-maria-auxiliadora/#casa",
       "name": "Quinta María Auxiliadora",
-      "description": "Construcción, entregada en 2025.",
+      "description": "Construcción, entregada en 2025",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "PENDIENTE: zona de la obra",

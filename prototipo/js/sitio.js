@@ -52,7 +52,9 @@
   /* En el Home el menú no está al cargar: entra con el primer scroll. */
   if (header && header.classList.contains('header-espera')) {
     const menuSegunScroll = () => {
-      header.classList.toggle('header-listo', (window.scrollY || 0) > 28);
+      const paso = (window.scrollY || 0) > 28;
+      header.classList.toggle('header-listo', paso);
+      document.body.classList.toggle('paso-scroll', paso);
     };
     addEventListener('scroll', menuSegunScroll, { passive: true });
     menuSegunScroll();

@@ -501,10 +501,12 @@ fieldset.campo{border:0;margin:0;padding:0}
   #m2-box{right:auto;left:var(--gutter);bottom:calc(var(--tb) + 3.1 * var(--t-movil) + 24px);width:52vw}
   #iso-box{width:56px;bottom:calc(var(--tb) + 3.1 * var(--t-movil) + 28px)}
   #reticula-box .r-par{display:none}
-  .rec-ui{grid-template-columns:1fr auto;padding:.9rem var(--gutter) calc(.9rem + env(safe-area-inset-bottom))}
-  .rec-ui .etq{grid-column:1/-1;order:-1;font-size:12px;letter-spacing:.16em;white-space:normal}
+  .rec-ui{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.7rem;padding:.9rem var(--gutter) calc(.9rem + env(safe-area-inset-bottom));opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+  .rec-ui .etq{font-size:12px;letter-spacing:.16em;white-space:normal;text-align:center;max-width:18rem}
+  .progreso{justify-content:center}
   .progreso .bar{width:56px}
-  .desliza span{display:none}
+  .desliza{display:none}
+  body.paso-scroll .rec-ui{opacity:1;visibility:visible}
   /* Secciones */
   .quienes .intro,.proceso-head,.l-sec-head{display:block}
   .proceso-head .title{white-space:normal;font-size:clamp(1.55rem,6.4vw,2.05rem)}
